@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#202020" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/BySimpuPrasad/257/main/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>LineUp</title>
+</head>
+
+<body>
+  <div class="bgackgroundImg"><video class="backgroundVideo" width="320" height="240" autoplay muted loop>
+      <source src="none" type="video/mp4">
+    </video></div>
+  <div class="nav" id="nav">
+    <div class="filterSupporterNav"></div>
+    <div id="searchArea"><input placeholder="Search..." type="text" id="searchBar" oninput="searchHere(this)">
+      <div class="closeSA" onclick="searchArea.classList.remove('active');"><i style="font-size:30px;" class="fa fa-close"></i></div>
+    </div>
+    <div class="logo"></div>
+    <div class="searchBTN" onclick="searchArea.classList.add('active')"><i class="fa fa-search"></i></div>
+  </div>
+  <div class="stickyBar">
+    <div id="shareArea">
+      <div class="shareList">
+        <span id="urlHere" contentEditable></span>
+        <a href="javascript:copytext()"><i class="fa fa-link" aria-hidden="true"></i></a>
+      </div>
+      <div class="closeShA" onclick="shareArea.classList.remove('active')"><i style="font-size:30px;" class="fa fa-close"></i></div>
+    </div><span class="navList">LineUp > Home </span><button onclick="shareArea.classList.add('active'); urlHere.innerHTML = window.location.href" class="shareBtn"><i class="fa fa-share-alt"></i></button>
+  </div>
+
+  <div id="dataHolder" class="dataholder">
+
+    <div class="book">
+      <div class="listContent">
+        <h3>Beautifull Color leaf</h3><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzSel8a5GFV1PP4YhJYUPlJ9tbB0QdDfXPsDdNUGod8Y6JNyJoePW3at4&s=10" alt="none">A beautiful colorfull leaf.
+      </div><a href="https://drive.google.com/drive/folders/1r-vwRsCTS0TBgD4YdKSeOrXTxUtg2x3G" class="listLinks">Visit</a>
+    </div>
+
+    <div class="book">
+      <div class="listContent">
+        <h3>A crazy cat</h3><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYRQX1u4sgmT2fWZDxCImitYjTJLCssvz01wmbwZd4b0fE5ilXRdQ6LDOB&s=10" alt="">A crazy cat sitting on sofa.
+      </div><a href="" class="listLinks">Visit</a>
+    </div>
+
+    <div class="book">
+      <div class="listContent">
+        <h3>A beautifull farm land</h3><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS54PCrgMhlPtnAMqLCz8A7pI5AZh4HPRH9OvvOkLR9ww&s" alt="">A scene of stair farming.
+      </div><a href="" class="listLinks">Visit</a>
+    </div>
+
+
+  </div>
+  <div class="footer">
+    <div class="light"><span></span></div><i>created by <a href="https://drive.google.com/drive/folders/1r-vwRsCTS0TBgD4YdKSeOrXTxUtg2x3G" style="user-select:auto; text-decoration:none; color:aqua;">((((( simpu_kumar )))))</a></i><br><b style="color: #999999;">Released under github pages.</b><br>
+    <div class="lincLinks">
+      <span onclick="disclaimerPage.classList.toggle('active')">Disclaimer</span>
+      <span onclick="PandPPage.classList.toggle('active')">Privacy & Policy</span>
+    </div>
+  </div>
+  
+  <div class="ReadmePages" id="disclaimerPage"><button onclick="this.parentElement.classList.toggle('active')" class="readmeclose"><i class="fa fa-close"></i></button>
+  <h1>Disclaimer</h1><hr>
+  </div>
+  <div class="ReadmePages" id="PandPPage"><button onclick="this.parentElement.classList.toggle('active')" class="readmeclose"><i class="fa fa-close"></i></button>
+  <h1>Privacy & Policy</h1><hr>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

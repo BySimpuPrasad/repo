@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="icon" type="image/x-icon" href="https://tal7aouy.gallerycdn.vsassets.io/extensions/tal7aouy/icons/3.8.0/1703110281439/Microsoft.VisualStudio.Services.Icons.Default">
+  <title>ShareLink</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #DBDBDB;
+      width: 100%;
+    }
+
+    body>a {
+      background: #00AFFF;
+      display: block;
+      width: 80%;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3em;
+      border-radius: 20px 100%;
+      margin: 8px;
+    }
+
+    .hiddenbar {
+      width: 100%;
+      background: none;
+      height: 30px;
+      position: absolute;
+      top: 0;
+    }
+
+    #boxx {
+      position: fixed;
+      display: none;
+      width: 90%;
+      height: 50vh;
+      background: #fff;
+      border-radius: 20px;
+      border: 5px solid #00BDFC;
+      padding: 10px;
+      box-shadow: 0px 0px 0px 50vh #000000;
+    }
+
+    #boxx.show {
+      display: block;
+    }
+
+    #boxx>a {
+      display: block;
+      text-decoration: none;
+      background: #00BDFC;
+      padding: 3px 5px;
+      padding-left: 10px;
+      border-radius: 8px;
+      color: white;
+      margin: 5px 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div onclick="runPass()" class="hiddenbar"></div>
+
+  <a href="https://www.punjabeducare.org/main-7th-class">Punjab Educare 7</a>
+  <a href="https://chatgpt.com/">Open AI</a>
+
+
+  <div id="boxx">
+    <a href="https://www.mediafire.com/file/gk2v4bn93x7cyiy/MC_Patch_1.21.50.apk/file">mcpe 1.21.50 patch mediafire</a>
+    <a href="https://drive.google.com/drive/folders/1r-vwRsCTS0TBgD4YdKSeOrXTxUtg2x3G">download images drive</a>
+
+  </div>
+
+
+
+  <script>
+    document.body.style.setProperty('height', window.innerHeight + "px");
+
+    let i = 0;
+
+    function displayBox() {
+      if (prompt('pass') == "7") {
+        boxx.classList.add('show');
+      }
+      else {
+        alert('wrong pass');
+        boxx.classList.remove('show');
+      }
+    }
+
+    function runPass() {
+      i++;
+      if (i == 7) {
+        displayBox();
+        i = 0;
+      }
+      else {}
+    }
+  </script>
+</body>
+
+</html>
