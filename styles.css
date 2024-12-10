@@ -259,7 +259,8 @@ a {
   min-height: 100vh;
   padding: 20px 18px;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  --justify-content: center;
   flex-direction: column;
 }
 
@@ -335,7 +336,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 10%;
+  margin: 10px;
 }
 
 .book>.listContent {
