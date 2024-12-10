@@ -1,8 +1,8 @@
-//comments as
+
 function copytext() {
   let x = window.location.href;
-  navigator.clipboard.writeText(x)
-  alert('Url Copied!')
+  navigator.clipboard.writeText(x);
+  alert('Url Copied!');
 }
 
 function searchHere(e) {
