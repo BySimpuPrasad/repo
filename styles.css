@@ -334,7 +334,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 25px 0px;
+  margin: 10%;
 }
 
 .book>.listContent {
