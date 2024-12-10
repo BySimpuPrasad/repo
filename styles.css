@@ -260,6 +260,7 @@ a {
   padding: 20px 18px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .dataholder>hr {
