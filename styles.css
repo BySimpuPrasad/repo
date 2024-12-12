@@ -329,8 +329,8 @@ a {
 }
 
 .book {
-  width: 100%;
-  max-width: 600px;
+  width: 85%;
+  min-width: 350px;
   height: min-content;
   background: none;
   border-radius: 5px;
@@ -367,6 +367,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width:100%;
 }
 
 .book>.listContent>div>img {
@@ -374,6 +375,23 @@ a {
   width: 100%;
   max-width: 700px;
   margin-bottom: 10px;
+}
+
+.book>.listContent>div>span {
+  display:block;
+  width: 100%;
+  border:1px solid red;
+}
+
+@media only screen and (orientation: landscape) {
+  .book>.listContent>div {
+    flex-direction: row;
+  }
+
+  .book>.listContent>div>img {
+    max-width: 50svh;
+  }
+
 }
 
 .book>.listLinks {
