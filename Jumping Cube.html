@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>#cubejump</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Matemasie&family=Quicksand:wght@300..700&display=swap');
+
+    * {
+      user-select: none;
+      box-sizing: border-box;
+      font-family: "Quicksand", sans-serif;
+    }
+
+    :root {
+      --elementCharge: polygon(78% 17%, 25% 58%, 42% 57%, 20% 84%, 72% 46%, 56% 45%);
+
+    }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100svh;
+    }
+
+    #gameCanvas {
+      --background-color: #000;
+      border: none;
+      --border-bottom: 2px solid #222;
+      transition: all 0s;
+    }
+
+    #score,
+    #highScore {
+      text-align: center;
+      font-size: 24px;
+      color: aqua;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    #highScore {
+      color: white;
+      text-shadow: 0px 0px 5px white;
+    }
+
+    #gameOver {
+      text-align: center;
+      color: red;
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 99;
+      font-size: 3.5em;
+      font-weight: 1000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: #000000c0;
+      backdrop-filter: blur(3px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      #gameCanvas {
+        width: 90vw;
+        height: 30vh;
+      }
+
+      #score,
+      #highScore {
+        font-size: 18px;
+      }
+    }
+
+    #healthX {
+      color: yellow;
+      position: relative;
+      height: 3em;
+      display: block;
+      width: 90%;
+      padding: 5px;
+    }
+
+    #healthX span {
+      display: inline-block;
+      width: 25px;
+      aspect-ratio: 1/1;
+      background: white;
+      margin: 0px;
+      clip-path: var(--elementCharge);
+    }
+
+    #sprintCube {
+      padding: 5px 20px 10px 20px;
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 1.5em;
+      border-radius: 5px;
+      opacity: 1;
+      /* Set button opacity to 30% */
+      transition: opacity 0.3s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0px 0px 0px 0px white;
+      font-variant: small-caps;
+      transition: all 0.2s ease;
+    }
+
+    #sprintCube::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(180deg, #444 50%, #222 50%);
+      z-index: -2;
+      transition: width 40s linear;
+    }
+
+    #sprintCube:active:before {
+      transition: all 0.1s;
+      width: 0%;
+    }
+
+    #sprintCube::after {
+      position: absolute;
+      content: '';
+      bottom: 3px;
+      height: 3px;
+      width: 90%;
+      left: 5%;
+      background: #ffffff80;
+      z-index: -1;
+      border-radius: 20px;
+      transition: all 0.5s;
+    }
+
+    #sprintCube.disabled::after {
+      transition: all 5s linear;
+      width: 0%;
+    }
+
+    #sprintCube.disabled {
+      opacity: 0.5;
+      /* Keep opacity at 30% when disabled */
+      cursor: not-allowed;
+      /* Change cursor to indicate button is disabled */
+      box-shadow: inset 0px 0px 0px 1px #333;
+      pointer-events: none;
+    }
+
+    #sprintCube.stop {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    #sprintCube.lock {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    #muteButton {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #333;
+      color: white;
+      padding: 10px 20px 10px 10px;
+      border: none;
+      border-radius: 0px 0px 0px 10px;
+    }
+
+    #muteButton.disabled {
+      opacity: 0.5;
+      /* Set button opacity to 50% when disabled */
+      cursor: not-allowed;
+      /* Change cursor to indicate button is disabled */
+    }
+
+    /* CSS for the entrance animation */
+    @keyframes fadeInScaleUp {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    #gameCanvas,
+    #score,
+    #highScore,
+    #gameOver,
+    #healthX {
+      animation: fadeInScaleUp 1s ease-out;
+    }
+
+    #gameOver {
+      animation: fadeInScaleUp 1s ease-out 0s;
+      /* Delay for gameOver */
+    }
+
+    #score,
+    #highScore {
+      animation: fadeInScaleUp 1s ease-out 1s;
+      /* Delay for score and high score */
+    }
+
+    .coinBar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 5px 0px 0px 20px;
+    }
+
+    .coinBar>.coinIcon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: gold;
+      background: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-size: 15px;
+      animation: iconCoin 0.5s linear 0s infinite alternate;
+    }
+
+    @keyframes iconCoin {
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .coinBar #coinstxt {
+      display: block;
+      border: none;
+      color: white;
+      margin-left: 2px;
+    }
+
+    .buybtn {
+      border: none;
+      color: white;
+      background: linear-gradient(180deg, #FFB500 50%, #CA7A00 50%);
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: transform 1s;
+    }
+
+    .buybtn:active {
+      opacity: 0.8;
+    }
+
+    .buybtn>span {
+      margin: 0px;
+      display: inline-block;
+      width: 20px;
+      aspect-ratio: 1/1;
+      background: white;
+      clip-path: var(--elementCharge);
+    }
+
+    #BuyBTN.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    #BuyBTN.lock {
+      transform: translateY(-300%);
+    }
+
+    #startGameXD {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 90%;
+      left: 5%;
+      border-radius: 20px 20px 0px 0px;
+      font-family: algerian;
+      padding: 10px;
+      font-size: 2em;
+      font-weight: 1000;
+      letter-spacing: 5px;
+      color: white;
+      background: linear-gradient(180deg, #FFB500 50%, #CA7A00 50%);
+      border: none;
+      transition: all 2s;
+      text-shadow: none;
+      animation: glowStart 2s ease 0s infinite alternate;
+      overflow: hidden;
+    }
+
+    #startGameXD.disable {
+      transition: all 0.3s;
+      transform: translateY(120%);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    @keyframes glowStart {
+      100% {
+        text-shadow: 0px 0px 10px white, 0px 0px 5px white;
+      }
+    }
+
+    #giftbox {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 88;
+      background: none;
+      padding: 20px;
+      background: #00000090;
+      box-sizing: border-box;
+      transform: scale(0);
+      top: 200%;
+      transition: all 1s ease;
+    }
+
+    #giftbox.lock {
+      transform: none;
+      top: 0%;
+    }
+
+    #giftbox>div {
+      height: 110px;
+      width: 50%;
+      background: linear-gradient(0deg, #222, #999);
+      transition: transform 0.2s ease;
+    }
+
+    #giftbox .boxleft {
+      border-radius: 30px 0px 0px 30px;
+      box-shadow: inset -10px 0px 0px 0px #00000090, inset -5px 0px 0px 0px aqua;
+    }
+
+    #giftbox .boxright {
+      border-radius: 0px 30px 30px 0px;
+      box-shadow: inset 10px 0px 0px 0px #00000090, inset 5px 0px 0px 0px aqua;
+    }
+
+    #giftbox #rewardCount {
+      background: #00FFFA20;
+      position: absolute;
+      width: 50%;
+      height: 90px;
+      border: 3px solid aqua;
+      box-sizing: border-box;
+      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2em;
+      text-shadow: 0px 0px 3px white;
+    }
+
+    #giftbox.open .boxleft {
+      transform: translate(-50%);
+    }
+
+    #giftbox.open .boxright {
+      transform: translate(50%);
+    }
+
+
+    #Buyables {
+      width: 90%;
+      position: absolute;
+      top: 0;
+      left: 5%;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-100%);
+      transition: transform 0.2s ease;
+    }
+
+    #Buyables.open {
+      transform: translateY(20%);
+    }
+
+    #Buyables .BuyableContent {
+      width: 100%;
+      height: 60vh;
+      border-radius: 5px;
+      background: #111111e1;
+      padding: 10px 5px;
+      box-sizing: border-box;
+      border: 2px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      flex-direction: column;
+    }
+
+    #Buyables .BuyableContent>b {
+      display: flex;
+      background: #333;
+      width: 100%;
+      padding: 2px;
+      padding-left: 10px;
+      color: #888;
+      font-variant: small-caps;
+      margin: 5px 0px 5px 0px;
+    }
+
+    #Buyables .BuyMore {
+      width: 80px;
+      height: 30px;
+      color: white;
+      background: green;
+      bottom: -30px;
+      position: absolute;
+      right: 100px;
+      border-radius: 0px 0px 5px 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #333;
+      border-top: none;
+    }
+
+    #Buyables .BuyMore.unable {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .BuyableContent .cratebtn {
+      color: white;
+      width: 90%;
+      padding: 5px 0px;
+      background: #D36300;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .BuyableContent .cratebtn.disable {
+      filter: brightness(30%);
+      pointer-events: none;
+    }
+
+    #ChallengeNotify {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      border: 1px solid #666;
+      width: 80%;
+      height: 50px;
+      position: absolute;
+      top: 20%;
+      border-radius: 0px;
+      z-index: 25;
+      border-left: none;
+      border-right: none;
+    }
+
+    #ChallengeNotify>span {
+      color: aqua;
+    }
+
+    #ChallengeNotify::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: black;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      box-shadow: 0px -5px 0px 0px #00FFF330, 0px 5px 0px 0px #00FFF330;
+      transition: width 60s linear;
+    }
+
+    #ChallengeNotify.stopcooldown {
+      --Acolor: #00B9BB;
+      color: var(--Acolor);
+      border-color: var(--Acolor);
+    }
+
+    #ChallengeNotify.stopcooldown::before {
+      transition: width 0.5s;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: black;
+      width: 0%;
+      height: 100%;
+      z-index: -1;
+      box-shadow: 0px -5px 0px 0px #00FFF330, 0px 5px 0px 0px #00FFF330;
+    }
+
+    #ChallengeNotify.achieved {
+      --Acolor: #33FF00;
+      color: var(--Acolor);
+      border-color: var(--Acolor);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ChallengeNotify">Wait for challenge!</div>
+  <div class="coinBar"><span class="coinIcon">&#128206;</span> <span id="coinstxt">---</span><button id="BuyBTN" class="buybtn" onclick="buyheart()"><span></span>Buy</button></div>
+  <canvas oncontextmenu="document.body.requestFullscreen();" id="gameCanvas" width="800" height="200"></canvas>
+  <div id="healthX"><span></span><span></span><span></span></div>
+  <div id="score">Score: 0</div>
+  <div id="highScore">High Score: 0</div>
+  <div id="gameOver"><span style="padding:5px 20px; color:white; background:linear-gradient(90deg, transparent, maroon, transparent);">Game Over!</span><span style="margin-top:5px; font-size:30px; color:gold;" id="scoreReplay"></span><span style="font-size:20px; color:aqua;">Time Survived <span id="timeSurvived">00:00</span></span></div>
+  <button id="sprintCube">&#10095;&#10095;&#10095;&#10095;&#10095;</button>
+  <button id="muteButton">Sound</button>
+  <button id="startGameXD" onclick="startgameXDf(this)">START</button>
+
+  <div id="giftbox">
+    <div class="boxleft"></div>
+    <div id="rewardCount">0</div>
+    <div class="boxright"></div>
+  </div>
+
+  <div id="Buyables">
+    <div class="BuyableContent">
+      <b>Pins Crate</b>
+      <button class="cratebtn" id="cratebtnID" onclick="buyCrate(this)">Buy Crate / 350</button>
+    </div>
+    <div id="BuyMoreID" class="BuyMore" onclick="openBuyables(this)">more</div>
+  </div>
+  <script>
+    let GameStarted = false;
+    let gameOveredATime = false;
+
+    let DinoColor = "#fff";
+    const ObstaclesColor = "blueviolet";
+    backgroundColor = "#000000";
+    document.body.style.background = backgroundColor + ")";
+    gameCanvas.style.background = backgroundColor + ")";
+    let backgroundColorMod = backgroundColor + "25";
+    sprintCube.classList.add('lock');
+
+    gameCanvas.style.setProperty('border-bottom', '2px solid ' + ObstaclesColor);
+    let CustomgameSpeed = 4; // 3
+    let DinoJumpPower = -11.5; // -7
+    let GameGravityX = 0.7; // 0.2
+    const gameSpeedPerInterval = 0.02;
+    const PerIntervalAfter = 500;
+    let ObstaclesDistance = 300;
+    let obstaclesIncrement = 1;
+    let coins = +localStorage.getItem("coinsdata") - 5 || 0;
+    let ScoreTask;
+    let rewardCoins;
+    let leastScoreRange = 22;
+    let maxScoreRange = leastScoreRange + 100;
+    let timesInseconds = 0;
+    let finalTime = 0000;
+    //let DJPIncreament = (DinoJumpPower/CustomgameSpeed)*gameSpeedPerInterval;
+    //let GGXIncreament = (GameGravityX/CustomgameSpeed)*gameSpeedPerInterval;
+
+    //let audioBGM = new Audio("https://cdn.pixabay.com/audio/2023/04/01/audio_17e5121889.mp3"); //Original 
+    let audioBGM = new Audio("https://cdn.pixabay.com/audio/2022/10/25/audio_ecba0c58a1.mp3");
+    audioBGM.volume = 0.02; //0.06
+    let audioBuy = new Audio("https://cdn.pixabay.com/audio/2024/08/07/audio_2e97cd94e7.mp3");
+    let audioCrateCome = new Audio("https://cdn.pixabay.com/audio/2024/01/17/audio_1227ff899a.mp3");
+    audioCrateCome.volume = 0.05;
+    let audioCrateOpen = new Audio("https://assets.mixkit.co/active_storage/sfx/2115/2115-preview.mp3");
+    let audioGstart = new Audio("https://cdn.pixabay.com/audio/2022/03/24/audio_4ef73d484d.mp3");
+    audioGstart.playbackRate = 2;
+    let audioJump = new Audio("https://cdn.pixabay.com/audio/2021/08/04/audio_514df0ed60.mp3");
+    audioJump.volume = 0;
+    let audioCollied = new Audio("https://cdn.pixabay.com/audio/2024/08/07/audio_b41cb4e0ac.mp3");
+    let audioGameover = new Audio("https://cdn.uppbeat.io/audio-files/8a0ead3ea7dbf25377a13251625e6d3d/d746b87293cbabb7587a173b38a4659c/10d53778f19551eeb31fee7e880c973f/STREAMING-game-over-horns-epic-stock-media-1-00-03.mp3");
+    let audioSprint = new Audio("https://cdn.pixabay.com/audio/2022/03/10/audio_56d8d071d1.mp3");
+    audioSprint.volume = 0.03;
+    let achievementTriger = new Audio("https://assets.mixkit.co/active_storage/sfx/866/866-preview.mp3");
+
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const dino = {
+      x: 50,
+      y: 150,
+      width: 30,
+      height: 10,
+      dy: 0,
+      gravity: 0.2,
+      jumpPower: 0,
+      onGround: true,
+      health: 4,
+      color: DinoColor,
+      sprinting: false,
+    };
+
+    let currentHealth = dino.health;
+
+    const obstacles = [];
+    let score = 0;
+    let highestScore = getHighestScore();
+    let gameSpeed = -999;
+    let gameOver = false;
+    let obstacleInterval = ObstaclesDistance;
+    let collisionDisabled = false;
+    let touchDisabled = false; // Flag to disable touch input
+    let sprintCooldown = false; // Flag to track sprint cooldown
+    const sprintCooldownTime = 40000; // 40 seconds cooldown in milliseconds
+
+    function getHighestScore() {
+      return parseInt(localStorage.getItem("highestScore"), 10) || 0;
+    }
+
+    function saveHighestScore(score) {
+      localStorage.setItem("highestScore", score);
+    }
+
+    function updateUI() {
+      coins += 5;
+      coinstxt.innerHTML = coins;
+      localStorage.setItem("coinsdata", coins);
+      if (coins < 200 || dino.health > 10) { BuyBTN.classList.add('disabled'); }
+      else { BuyBTN.classList.remove('disabled'); }
+
+      if (coins < 150) {
+        sprintCube.classList.add('stop');
+      }
+      else { sprintCube.classList.remove('stop'); }
+
+      document.getElementById("score").innerText = "Score: " + score;
+      scoreReplay.innerHTML = "Score: " + score;
+      document.getElementById("highScore").innerText = "High Score: " + highestScore;
+      dinoHealthCount();
+      (coins < 350) ? cratebtnID.classList.add('disable'): cratebtnID.classList.remove('disable');
+      UpdateScoreTask();
+    }
+
+    function drawDino() {
+      if (dino.sprinting) {
+        ctx.shadowColor = dino.color;
+        ctx.shadowBlur = 5; // Add a glow effect when sprinting
+      } else {
+        ctx.shadowBlur = 0; // Remove the glow effect when not sprinting
+      }
+
+      ctx.fillStyle = dino.color;
+      ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+      ctx.shadowBlur = 0; // Reset shadow after drawing
+    }
+
+    function drawObstacles() {
+      ctx.fillStyle = ObstaclesColor;
+      obstacles.forEach(obstacle => ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height));
+    }
+
+    function updateDino() {
+      dino.dy += dino.gravity;
+      dino.y += dino.dy;
+
+      if (dino.y > canvas.height - dino.height) {
+        dino.y = canvas.height - dino.height;
+        dino.onGround = true;
+        dino.dy = 0;
+      }
+    }
+
+    function updateObstacles() {
+      obstacles.forEach(obstacle => obstacle.x -= gameSpeed);
+
+      if (obstacles.length === 0 || obstacles[obstacles.length - 1].x < canvas.width - obstacleInterval) {
+        const obstacleHeight = Math.random() * (50 - 20) + 20;
+        obstacles.push({
+
+          x: canvas.width,
+          y: canvas.height - obstacleHeight,
+          width: 20,
+          height: obstacleHeight
+        });
+      }
+
+      if (obstacles[0]?.x + obstacles[0].width < 0) {
+        obstacles.shift();
+        score++;
+        if (score > highestScore) {
+          highestScore = score;
+          saveHighestScore(highestScore);
+        }
+        updateUI();
+      }
+    }
+
+    function checkCollision() {
+      if (collisionDisabled) return;
+
+      obstacles.forEach((obstacle, index) => {
+        if (dino.x < obstacle.x + obstacle.width &&
+          dino.x + dino.width > obstacle.x &&
+          dino.y < obstacle.y + obstacle.height &&
+          dino.y + dino.height > obstacle.y) {
+
+          dino.health -= 1;
+          if (dino.health <= 0) {
+            gameOver = true;
+            gameOveredATime = true;
+            GameStarted = false;
+            setTimeout(() => GameStarted ? startGameXD.classList.add('disable') : startGameXD.classList.remove('disable'), 5000);
+            GameStarted ? BuyBTN.classList.add('lock') : BuyBTN.classList.remove('lock');
+            GameStarted ? BuyMoreID.classList.add('unable') : BuyMoreID.classList.remove('unable');
+            sprintCube.classList.add('lock');
+            audioGameover.play();
+            audioJump.volume = 0;
+            navigator.vibrate(800);
+            timeSurvived.innerHTML = finalTime;
+            dino.health = 4;
+            setTimeout(() => dinoHealthCount(), 1000);
+            document.getElementById("gameOver").style.display = "flex";
+            touchDisabled = true; // Disable touch input
+            setTimeout(() => {
+              touchDisabled = false;
+              document.getElementById("gameOver").style.display = "none";
+              restartChallenge();
+              //restartChallenge();
+            }, 5000); // Re-enable touch input after 5 seconds
+          }
+          else {
+            obstacles.splice(index, 1);
+            if (navigator.vibrate) {
+              navigator.vibrate(200);
+              audioCollied.playbackRate = 5;
+              audioCollied.play();
+              dino.color = "#555";
+              setTimeout(() => { dino.color = DinoColor; }, 200);
+              dinoHealthCount();
+              coins -= 5;
+              updateUI();
+            }
+          }
+        }
+      });
+    }
+
+    function dinoHealthCount() {
+      let healthX = document.getElementById("healthX");
+      healthX.innerHTML = null;
+      for (let i = 1; i < dino.health; i++) { healthX.innerHTML += `<span></span>`; }
+    }
+
+    function restartGame() {
+      if (GameStarted == true) return;
+
+      sprintCube.classList.remove('lock');
+      GameStarted = true;
+      score = 0;
+      obstacles.length = 0;
+      gameSpeed = CustomgameSpeed;
+      dino.jumpPower = DinoJumpPower;
+      dino.gravity = GameGravityX;
+      obstacleInterval = ObstaclesDistance;
+      dino.y = 150;
+      dino.dy = 0;
+      dino.onGround = true;
+      dino.health = currentHealth;
+      gameOver = false;
+      countDownTimes();
+      document.getElementById("gameOver").style.display = "none";
+      coins -= 5;
+      updateUI();
+      GameStarted ? startGameXD.classList.add('disable') : startGameXD.classList.remove('disable');
+      GameStarted ? BuyBTN.classList.add('lock') : BuyBTN.classList.remove('lock');
+      GameStarted ? BuyMoreID.classList.add('unable') : BuyMoreID.classList.remove('unable');
+    }
+
+    // startGameXD.addEventListener("click", startgameXDf());
+
+    function startgameXDf(e) {
+      audioBGM.play();
+      audioBGM.loop = true;
+      GameStarted ? startGameXD.classList.add('disable') : startGameXD.classList.remove('disable');
+      restartGame();
+      audioGstart.play();
+      if (gameOveredATime == true) { requestAnimationFrame(gameLoop); }
+      setTimeout(() => audioJump.volume = 0.07, 500);
+      setTimeout(() => challenge(), 5000);
+    }
+
+    function applyMotionBlur() {
+      ctx.fillStyle = backgroundColorMod;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function gameLoop() {
+      if (gameOver) return;
+
+      applyMotionBlur();
+      updateDino();
+      updateObstacles();
+      checkCollision();
+      drawDino();
+      drawObstacles();
+
+      if (dino.sprinting) {
+        applyVibrationEffect(); // Call vibration effect function when sprinting
+      }
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    function handleInput() {
+      if (!touchDisabled) { // Check if touch input is disabled
+        if (dino.onGround) {
+          dino.dy = dino.jumpPower;
+          dino.onGround = false;
+          audioJump.playbackRate = 4;
+          audioJump.play();
+        }
+      }
+    }
+
+    function increaseGameSpeed() {
+      gameSpeed += gameSpeedPerInterval;
+      //GameGravityX += GameGravityX;
+      // DinoJumpPower -= DJPIncreament;
+      obstaclesIncrement += 0.02;
+      obstacleInterval += obstaclesIncrement;
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        if (gameOver) {
+          // restartGame();
+          requestAnimationFrame(gameLoop);
+        } else {
+          handleInput();
+        }
+      }
+    });
+
+    document.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      if (!touchDisabled) { // Check if touch input is disabled
+        if (gameOver) {
+          // restartGame();
+          requestAnimationFrame(gameLoop);
+        } else {
+          handleInput();
+        }
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!touchDisabled) { // Check if touch input is disabled
+        if (gameOver) {
+          // restartGame();
+          requestAnimationFrame(gameLoop);
+        } else {
+          handleInput();
+        }
+      }
+    });
+
+    document.getElementById("sprintCube").addEventListener("click", () => {
+      if (!gameOver && !sprintCooldown) {
+        collisionDisabled = true;
+        dino.sprinting = true;
+        let originalSpeed = gameSpeed;
+        gameSpeed *= 10; // Increase speed by 1000%
+        coins -= 150;
+        updateUI();
+
+        // Play and extend the sprinting sound
+        audioSprint.play();
+        audioSprint.playbackRate = 0.5; // Double the speed of the audio to extend duration
+
+        setTimeout(() => {
+          gameSpeed = originalSpeed + 0.5; // Reset speed
+          dino.sprinting = false; // Stop glowing
+          setTimeout(() => { collisionDisabled = false; }, 2000); // Re-enable collision
+          audioSprint.playbackRate = 1; // Reset playback rate
+        }, 5000); // Sprint lasts for 5 seconds
+
+        sprintCooldown = true; // Start cooldown
+        document.getElementById("sprintCube").classList.add("disabled"); // Add disabled class
+
+        setTimeout(() => {
+          sprintCooldown = false; // End cooldown
+          document.getElementById("sprintCube").classList.remove("disabled"); // Remove disabled class
+        }, sprintCooldownTime); // Cooldown time
+      }
+    });
+
+    function applyVibrationEffect() {
+      const vibrationDuration = 500; // Duration of the vibration effect in milliseconds
+      const vibrationAmount = 5; // Pixel amount to shift the canvas
+      const startTime = performance.now();
+
+      function updateVibration() {
+        const elapsedTime = performance.now() - startTime;
+        if (elapsedTime < vibrationDuration) {
+          const offsetX = (Math.random() - 0.5) * vibrationAmount;
+          const offsetY = (Math.random() - 0.5) * vibrationAmount;
+          canvas.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+          requestAnimationFrame(updateVibration);
+        } else {
+          canvas.style.transform = "none"; // Reset the transform after vibration
+        }
+      }
+
+      updateVibration();
+    }
+
+
+    setInterval(increaseGameSpeed, PerIntervalAfter);
+
+    updateUI();
+    gameLoop();
+
+    const audioElements = [audioJump, audioCollied, audioGameover, audioSprint, audioBGM, audioBuy, audioGstart, audioCrateCome, audioCrateOpen, achievementTriger];
+    let isMuted = false;
+
+    function toggleMute() {
+      isMuted = !isMuted;
+      audioElements.forEach(audio => {
+        audio.muted = isMuted;
+      });
+      document.getElementById("muteButton").style.textDecoration = isMuted ? "line-through" : "none";
+    }
+
+    document.getElementById("muteButton").addEventListener("click", toggleMute);
+
+    function startGameAnimation() {
+      document.getElementById("gameCanvas").classList.add("animated");
+      document.getElementById("score").classList.add("animated");
+      document.getElementById("highScore").classList.add("animated");
+      document.getElementById("healthX").classList.add("animated");
+      document.getElementById("gameOver").classList.add("animated");
+    }
+
+    // Call this function when you are ready to start the game
+    startGameAnimation();
+
+    function buyheart() {
+      audioBuy.playbackRate = 2;
+      audioBuy.play();
+      coins -= 200;
+      dino.health += 1;
+      currentHealth = dino.health;
+      dinoHealthCount();
+      updateUI();
+      (coins < 350) ? cratebtnID.classList.add('disable'): cratebtnID.classList.remove('disable');
+    }
+
+    function openReward(e) {
+      audioCrateOpen.playbackRate = 2;
+      audioCrateOpen.play();
+      setTimeout(() => {
+        e.classList.add('open');
+        let rewardpoint = Math.floor(Math.random() * (500 - 100) + 100);
+        rewardCount.innerHTML = "&#128206; " + rewardpoint;
+        coins += rewardpoint;
+        updateUI();
+        setTimeout(() => {
+          e.classList.remove('open');
+          e.classList.remove('lock');
+        }, 2000);
+      }, 200);
+    }
+
+    function openBuyables(e) {
+      (e.innerHTML == "more") ? (e.innerHTML = "less") : (e.innerHTML = "more");
+      Buyables.classList.toggle('open');
+    }
+
+    function buyCrate(e) {
+      coins -= 350;
+      updateUI();
+      setTimeout(() => {
+        if (coins >= 350) e.classList.remove('disable');
+        (coins < 350) ? e.classList.add('disable'): e.classList.remove('disable');
+      }, 4500);
+      e.classList.add('disable');
+      giftbox.classList.add('lock');
+      audioCrateCome.playbackRate = 0.4;
+      audioCrateCome.play();
+      setTimeout(() => {
+        openReward(giftbox);
+      }, 2000);
+      //giftbox.style.pointerEvents = "none";
+      //giftbox.style.pointerEvents = "auto";
+    }
+
+    function challenge() {
+      if (GameStarted == false) { return; }
+      leastScoreRange = score + 60;
+      maxScoreRange = leastScoreRange + 100;
+      ScoreTask = Math.floor(Math.random() * (maxScoreRange - leastScoreRange) + leastScoreRange) - 1;
+      rewardCoins = Math.floor(Math.random() * (500 - 100) + 100);
+      ChallengeNotify.innerHTML = `Get&nbsp;<span>&#128206; ${rewardCoins}</span>&nbsp;on reaching score:&nbsp;<span>${ScoreTask}</span>`;
+      ChallengeNotify.classList.add('stopcooldown');
+    }
+
+    function UpdateScoreTask() {
+      if (ScoreTask == score) {
+        coins += rewardCoins;
+        ChallengeNotify.classList.remove('stopcooldown');
+        ChallengeNotify.classList.add('achieved');
+        ChallengeNotify.innerHTML = "&#10003; Challenge Achieved";
+        achievementTriger.play();
+        coinstxt.innerHTML = coins;
+        //leastScoreRange = score + 60;
+        //maxScoreRange = leastScoreRange + 100;
+        setTimeout(() => {
+          ChallengeNotify.classList.remove('achieved');
+          ChallengeNotify.innerHTML = "Wait for next challenge!";
+        }, 2000);
+        setTimeout(() => challenge(), 60000);
+      }
+      else {}
+    }
+
+    function restartChallenge() {
+      ChallengeNotify.classList.remove('achieved');
+      ChallengeNotify.classList.remove('stopcooldown');
+      ChallengeNotify.innerHTML = "Wait for Challenge!";
+      leastScoreRange = 0;
+      maxScoreRange = leastScoreRange + 100;
+    }
+
+    function countDownTimes() {
+      setInterval(() => {
+        timesInseconds++;
+        let minutes = Math.floor((timesInseconds / 60) % 60);
+        let seconds = Math.floor(timesInseconds % 60);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        finalTime = `${minutes} : ${seconds}`;
+      }, 1000);
+    }
+    
+    function space() {
+    sprintCube.click();
+}
+
+function upJump() {
+    gameCanvas.click();
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.code === "Space") {
+        space();
+    } else if (event.code === "Enter") {
+        upJump();
+    }
+});
+
+  </script>
+</body>
+<!-- &#9881; -->
+
+</html>
