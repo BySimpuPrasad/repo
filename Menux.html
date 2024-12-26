@@ -1,0 +1,82 @@
+<! DOCTYPE html>
+<html>
+<head>
+<title>new</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="black" />
+</head>
+<body>
+
+<button class="menubtn" onclick="this.classList.toggle('active')"><span></span><span></span><span></span></button>
+
+</body>
+
+<!--CSS--->
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}
+body{
+      height:100vh;
+      width:100%;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+}
+
+
+
+.menubtn{
+  display:flex;
+      justify-content: center;
+      align-items: center;
+      aspect-ratio:1/1;
+      width:20vw;
+      background:none;
+     border-radius: 20px;
+    flex-direction: column;
+    position: relative;
+    --lineColor: white;
+    border:2px solid var(--lineColor);
+}
+.menubtn > span{
+  display: block;
+  height:2px;
+  background: var(--lineColor);
+  width:70%;
+  margin: 10%;
+  transition: all 1s cubic-bezier(.1,1.28,.93,-0.39);
+  transform-origin: center;
+}
+
+
+.menubtn.active{
+  
+}
+.menubtn.active > span{
+  margin:0%;
+}
+.menubtn.active > span:nth-child(1){
+  transform: rotate(45deg);
+}
+.menubtn.active > span:nth-child(2){
+  transform: rotate(180deg) scale(0);
+}
+.menubtn.active > span:nth-child(3){
+  transform: rotate(-45deg);
+}
+
+
+
+</style>
+
+
+<!--SCRIPT--->
+<script>
+
+</script>
+</html>
