@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Text+Me+One&family=Trade+Winds&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --zcol: #2B8A48;
+  --zcolor: white;
+  --color2: #48A574;
+  --color2_1: #317450;
+  --pswF: white;
+}
+
+body {
+  min-height: 100svh;
+  width: 100%;
+  background: #eee url('https://images.pexels.com/photos/1172675/pexels-photo-1172675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 60px;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.search_logo {
+  width: 100%;
+  min-height: 50px;
+  padding: 5px;
+  color: var(--zcolor);
+  background: var(--zcol);
+  box-shadow: 0px 5px 5px 0px #000000a0;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  z-index: 99999;
+  overflow: hidden;
+  opacity: 80%;
+}
+
+.search_logo>.logo {
+  font-family: "Trade Winds" !important;
+}
+
+.search_logo>.btnsearchS {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background: none;
+  border: none;
+  font-size: 30px;
+  margin-right: 10px;
+  color: white;
+}
+
+.search_logo>.search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--zcol);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 20px;
+  transition: all 0.7s ease;
+  opacity: 0%;
+  pointer-events: none;
+}
+
+.search_logo>.search.active {
+  width: 100%;
+  opacity: 100%;
+  pointer-events: auto;
+}
+
+.search_logo>.search>#searchData {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+}
+
+#searchData::placeholder {
+  color: #00000030;
+}
+
+.search_logo>.search>.oksearch {
+  color: var(--zcolor);
+  height: 100%;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: auto;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.contentStored {
+  padding: 0px 12px;
+  min-height: 100svh;
+  width: 100%;
+}
+
+.movieData {
+  width: 100%;
+  color: white;
+  margin: 15px 0px;
+  position: relative;
+  box-shadow: 5px 5px 3px 0px #000000a0;
+  border: 2px solid var(--color2);
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 90%;
+}
+
+.movieData .movieHeading {
+  font-weight: bold;
+  font-size: 130%;
+  background: var(--color2);
+  padding: 5px;
+  padding-left: 10px;
+  width: 100%;
+  font-family: "Ubuntu" !important;
+}
+
+.movieData>.contInput {
+  width: 100%;
+  border: none;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: var(--color2_1)
+}
+
+.movieData>.contInput>i {
+  color: var(--pswF);
+  font-family: "Text Me One" !important;
+  font-weight: 900;
+}
+
+.movieData .passfield {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movieData .passfield>input {
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px;
+  outline: none;
+  background: none;
+  color: var(--pswF);
+  width: 100%;
+  border: 2px solid var(--color2);
+}
+
+.movieData .passfield>input::placeholder {
+  color: var(--pswF);
+}
+
+.movieData .passfield>button {
+  background: var(--color2);
+  border: 2px solid var(--color2);
+  font-weight: bold;
+  color: var(--pswF);
+  width: 20%;
+  height: 100%;
+  padding: 9px;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
+.movieData .orgetLink {
+  width: auto;
+  background: var(--color2);
+  color: var(--pswF);
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  font-family: "Orbitron" !important;
+}
+
+.movieData .orgetLink>.fa-youtube-play {
+  font-size: 25px;
+  text-shadow: 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white;
+  color: red;
+}
+
+.movieData .contOutput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color2_1);
+  border: none;
+  z-index: 5;
+  display: none;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 5px;
+}
+
+.contOutput>a {
+  text-decoration: none;
+  color: white;
+  background: var(--color2);
+  border: none;
+  border-radius: 10px 10px 10px 0px;
+  margin: 2px;
+  padding: 5px;
+}
+
+.contOutput.unlock {
+  display: flex;
+}
+
+.disclaimer {
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+  color: white;
+  background: linear-gradient(0deg, var(--zcol), #00000000 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.disclaimer>b {
+  margin: 5px;
+  font-family: "Trade Winds";
+}
+
+.disclaimer>span {
+  background: #ffffff20;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.disclaimer>i {
+  color: #ffffff90;
+  margin-top: 5px;
+}
