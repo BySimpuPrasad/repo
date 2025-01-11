@@ -14,6 +14,48 @@
   --color2_1: #317450;
   --pswF: white;
 }
+::selection{
+  color: green;
+  background: white;
+}
+.subToChannel {
+  background: var(--zcol);
+  padding: 5px;
+  border-radius: 100px;
+  position: sticky;
+  bottom: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity:85%;
+}
+
+.subToChannel>.logo {
+  width:40px;
+  height:40px;
+  background: url('https://images.pexels.com/photos/1172675/pexels-photo-1172675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  border: 2px solid var(--color2);
+}
+
+.subToChannel>.nameChannel {
+  margin:0px 10px;
+}
+
+.subToChannel>.subBtn {
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, red, #8D0000);
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  font-variant: small-caps;
+  box-shadow: 0px 0px 50px 0px white, 0px 0px 100px 0px white;
+}
 
 body {
   min-height: 100svh;
@@ -247,12 +289,13 @@ body {
   display: flex;
 }
 
+
 .disclaimer {
   width: 100%;
   padding: 10px;
-  margin-top: 30px;
+  margin-top: 10px;
   color: white;
-  background: linear-gradient(0deg, var(--zcol), #00000000 80%);
+  background: linear-gradient(0deg, var(--zcol) -20%, #00000000 80%);
   display: flex;
   align-items: center;
   justify-content: center;
