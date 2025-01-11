@@ -35,7 +35,7 @@
 .subToChannel>.logo {
   width:40px;
   height:40px;
-  background: url('https://images.pexels.com/photos/1172675/pexels-photo-1172675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background: url('./logoELW.png'), linear-gradient(-45deg, black, #888);
   background-position: center;
   background-size: cover;
   border-radius: 100%;
@@ -50,7 +50,7 @@
   text-decoration: none;
   color: white;
   background: linear-gradient(90deg, red, #8D0000);
-  border-radius: 10px;
+  border-radius: 100px;
   padding: 5px 10px;
   margin-right: 10px;
   font-variant: small-caps;
