@@ -7,6 +7,22 @@
   font-family: sans-serif;
 }
 
+body,
+.contOutput {
+  overflow: hidden;
+}
+
+body,
+.contOutput {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar,
+.contOutput::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --zcol: #2B8A48;
   --zcolor: white;
@@ -14,10 +30,12 @@
   --color2_1: #317450;
   --pswF: white;
 }
-::selection{
+
+::selection {
   color: green;
   background: white;
 }
+
 .subToChannel {
   background: var(--zcol);
   padding: 5px;
@@ -29,12 +47,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  opacity:85%;
+  opacity: 85%;
 }
 
 .subToChannel>.logo {
-  width:40px;
-  height:40px;
+  width: 40px;
+  height: 40px;
   background: url('./logoELW.png'), linear-gradient(-45deg, black, #888);
   background-position: center;
   background-size: cover;
@@ -43,7 +61,7 @@
 }
 
 .subToChannel>.nameChannel {
-  margin:0px 10px;
+  margin: 0px 10px;
 }
 
 .subToChannel>.subBtn {
@@ -162,8 +180,10 @@ body {
 
 .contentStored {
   padding: 0px 12px;
-  min-height: 100svh;
+  min-height: 100vh;
   width: 100%;
+  margin-bottom: 10px;
+  border: none;
 }
 
 .movieData {
@@ -183,9 +203,28 @@ body {
   font-size: 130%;
   background: var(--color2);
   padding: 5px;
-  padding-left: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movieData .movieHeading .moNam {
+  display: block;
+  border: none;
   width: 100%;
   font-family: "Ubuntu" !important;
+}
+
+.movieData .movieHeading .motrail {
+  display: block;
+  text-decoration: none;
+  color: var(--color2);
+  background: var(--pswF);
+  padding: 0px 5px;
+  border-radius: 5px;
+  font-family: "Orbitron";
+  font-size: 16px;
 }
 
 .movieData>.contInput {

@@ -19,16 +19,16 @@ function checkifpass(button) {
 
 function FetchBata(e) {
   let searchQuery = e.value.toLowerCase(); // Get the search query and convert to lowercase
-  let items = document.querySelectorAll('.movieData .movieHeading'); // Get all list items
+  let items = document.querySelectorAll('.movieData .movieHeading .moNam'); // Get all list items
 
   items.forEach(function(item) {
     let itemName = item.textContent.toLowerCase(); // Get the text content of each item and convert to lowercase
 
     // Show or hide the item based on whether it matches the search query
     if (itemName.includes(searchQuery)) {
-      item.parentElement.style.display = ''; // Show the item
+      item.parentElement.parentElement.style.display = ''; // Show the item
     } else {
-      item.parentElement.style.display = 'none'; // Hide the item
+      item.parentElement.parentElement.style.display = 'none'; // Hide the item
     }
   });
 }
