@@ -24,10 +24,11 @@ body::-webkit-scrollbar,
 }
 
 :root {
-  --zcol: #2B8A48;
+  --MbgImg: #051F30 url('./pixelcutBG.jpeg');
+  --zcol: #09314E;
   --zcolor: white;
-  --color2: #48A574;
-  --color2_1: #317450;
+  --color2: #0B8DA1;
+  --color2_1: #055170;
   --pswF: white;
 }
 
@@ -36,77 +37,10 @@ body::-webkit-scrollbar,
   background: white;
 }
 
-.subToChannel {
-  background: var(--zcol);
-  padding: 5px;
-  border-radius: 100px;
-  position: sticky;
-  bottom: 5px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  opacity: 85%;
-  box-shadow: 3px 3px 3px 0px #000000a0;
-}
-
-.subToChannel>.logo {
-  width: 40px;
-  height: 40px;
-  background: url('./logoELW.png'), linear-gradient(-45deg, black, #888);
-  background-position: center;
-  background-size: cover;
-  border-radius: 100%;
-  border: 2px solid var(--color2);
-}
-
-.subToChannel>.nameChannel {
-  margin: 0px 10px;
-}
-
-.subToChannel>.subBtn {
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(90deg, red, #8D0000);
-  border-radius: 100px;
-  padding: 5px 10px;
-  margin-right: 10px;
-  font-variant: small-caps;
-  box-shadow: 0px 0px 0px 2px #ffffff90;
-}
-
-.subToChannel>.subBtn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 20%;
-  background: #fff;
-  height: 100%;
-  width: 50%;
-  z-index: -1;
-  filter: blur(35px);
-  -webkit-filter: blur(35px);
-  -moz-filter: blur(35px);
-  animation: glintSub 4s ease 0s infinite normal;
-}
-
-@keyframes glintSub {
-
-  0%,
-  60% {
-    transform: translateX(-250%);
-  }
-
-  100% {
-    transform: translateX(250%);
-  }
-}
-
 body {
   min-height: 100svh;
   width: 100%;
-  background: #eee url('https://images.pexels.com/photos/1172675/pexels-photo-1172675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background: var(--MbgImg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -243,7 +177,7 @@ body {
   border: none;
   width: 100%;
   font-family: "Ubuntu" !important;
-  font-size:20px;
+  font-size: 20px;
   display: flex;
 }
 
@@ -251,7 +185,7 @@ body {
   display: block;
   border: none;
   height: 100%;
-  padding-right:1px;
+  padding-right: 1px;
   font-family: "Ubuntu" !important;
 }
 
@@ -282,6 +216,7 @@ body {
   color: var(--pswF);
   font-family: "Text Me One" !important;
   font-weight: 900;
+  font-style: normal;
 }
 
 .movieData .passfield {
@@ -334,8 +269,6 @@ body {
 
 .movieData .orgetLink>.fa-youtube-play {
   font-size: 25px;
-  text-shadow: 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white, 0px 0px 2px white;
-  color: red;
 }
 
 .movieData .contOutput {
@@ -367,13 +300,86 @@ body {
   display: flex;
 }
 
+.subToChannel {
+  background: var(--zcol);
+  padding: 5px;
+  border-radius: 100px;
+  position: sticky;
+  bottom: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 80%;
+  box-shadow: 3px 3px 3px 0px #000000a0;
+  border: 2px solid var(--color2);
+}
+
+.subToChannel>.logo {
+  width: 40px;
+  height: 40px;
+  background: url('./logoELW.png'), linear-gradient(-45deg, black, #888);
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  border: 2px solid var(--color2);
+}
+
+.subToChannel>.nameChannel {
+  margin: 0px 10px;
+}
+
+.subToChannel>.subBtn {
+  text-decoration: none;
+  color: white;
+  background: var(--color2);
+  border-radius: 100px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border: 2px solid var(--color2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subToChannel>.subBtn>i {
+  font-size: 120%;
+}
+
+.subToChannel>.subBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  background: #fff;
+  height: 100%;
+  width: 50%;
+  z-index: -1;
+  filter: blur(35px);
+  -webkit-filter: blur(35px);
+  -moz-filter: blur(35px);
+  animation: glintSub 4s ease 0s infinite normal;
+}
+
+@keyframes glintSub {
+
+  0%,
+  60% {
+    transform: translateX(-250%);
+  }
+
+  100% {
+    transform: translateX(250%);
+  }
+}
 
 .disclaimer {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
   color: white;
-  background: linear-gradient(0deg, var(--zcol) -20%, #00000000 80%);
+  background: linear-gradient(0deg, var(--zcol) 0%, #00000000 80%);
   display: flex;
   align-items: center;
   justify-content: center;
