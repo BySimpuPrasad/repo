@@ -8,18 +8,21 @@
 }
 
 body,
-.contOutput {
+.contOutput,
+.contentStored {
   overflow: hidden;
 }
 
 body,
-.contOutput {
+.contOutput,
+.contentStored {
   overflow-y: scroll;
   scrollbar-width: none;
 }
 
 body::-webkit-scrollbar,
-.contOutput::-webkit-scrollbar {
+.contOutput::-webkit-scrollbar,
+.contentStored::-webkit-scrollbar {
   display: none;
 }
 
@@ -33,9 +36,8 @@ body::-webkit-scrollbar,
 }
 
 ::selection {
-  color: green;
-  background: white;
-  
+  color: var(--color2_1);
+  background: var(--pswF);
 }
 
 body {
@@ -316,7 +318,6 @@ body {
   box-shadow: 3px 3px 3px 0px #000000a0;
   border: 2px solid var(--color2);
 }
-
 .subToChannel>.logo {
   width: 40px;
   height: 40px;
