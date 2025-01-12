@@ -154,7 +154,7 @@ body {
 .movieData {
   width: 100%;
   color: white;
-  margin: 15px 0px;
+  margin: 25px 0px;
   position: relative;
   box-shadow: 5px 5px 3px 0px #000000a0;
   border: 2px solid var(--color2);
@@ -229,6 +229,7 @@ body {
 }
 
 .movieData .passfield>input {
+  margin-top: 5px;
   border: none;
   border-radius: 10px;
   font-size: 20px;
@@ -318,6 +319,7 @@ body {
   box-shadow: 3px 3px 3px 0px #000000a0;
   border: 2px solid var(--color2);
 }
+
 .subToChannel>.logo {
   width: 40px;
   height: 40px;
@@ -338,7 +340,7 @@ body {
   background: var(--color2);
   border-radius: 100px;
   padding: 5px 10px;
-  margin-right: 10px;
+  margin-right: 5px;
   border: 2px solid var(--color2);
   display: flex;
   align-items: center;
