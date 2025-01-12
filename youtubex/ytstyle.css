@@ -221,7 +221,9 @@ body {
   font-weight: 900;
   font-style: normal;
 }
-
+.movieData>.contInput>i:nth-child(1){
+  margin-bottom: 5px;
+}
 .movieData .passfield {
   display: flex;
   justify-content: center;
@@ -229,7 +231,6 @@ body {
 }
 
 .movieData .passfield>input {
-  margin-top: 5px;
   border: none;
   border-radius: 10px;
   font-size: 20px;
