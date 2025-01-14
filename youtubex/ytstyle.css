@@ -67,7 +67,7 @@ body {
   top: 0px;
   left: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-size: 30px;
   z-index: 99999;
@@ -79,8 +79,30 @@ body {
   font-family: "Trade Winds" !important;
 }
 
+.search_logo>.menuicon {
+  background: none;
+  padding: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border: 0px solid white;
+  margin-left:10px;
+  height: 30px;
+  aspect-ratio:1/1;
+
+}
+
+.search_logo>.menuicon>div {
+  width: 100%;
+  background: var(--zcolor);
+  padding:1px;
+  margin:2px 0px;
+  border-radius:20px;
+}
+
 .search_logo>.btnsearchS {
-  position: absolute;
+  position: relative;
   right: 0;
   top: 0;
   height: 100%;
@@ -88,7 +110,7 @@ body {
   background: none;
   border: none;
   font-size: 30px;
-  margin-right: 10px;
+  margin-right: 15px;
   color: white;
 }
 
@@ -103,7 +125,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 5px 20px;
-  transition: all 0.7s ease;
+  transition: all 0.5s ease;
   opacity: 0%;
   pointer-events: none;
 }
@@ -222,9 +244,11 @@ body {
   font-weight: 900;
   font-style: normal;
 }
-.movieData>.contInput>i:nth-child(1){
+
+.movieData>.contInput>i:nth-child(1) {
   margin-bottom: 5px;
 }
+
 .movieData .passfield {
   display: flex;
   justify-content: center;
