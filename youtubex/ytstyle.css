@@ -99,8 +99,11 @@ body {
   padding:1px;
   margin:2px 0px;
   border-radius:20px;
+  animation: flowMenu 1.4s ease-in-out calc(var(--i)*1.6s) infinite alternate;
 }
-
+@keyframes flowMenu{
+  100% { width:50%;}
+}
 .search_logo>.btnsearchS {
   position: relative;
   right: 0;
