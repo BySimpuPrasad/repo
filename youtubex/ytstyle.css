@@ -7,6 +7,11 @@
   font-family: sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 body,
 .contOutput,
 .contentStored {
@@ -87,23 +92,27 @@ body {
   justify-content: center;
   flex-direction: column;
   border: 0px solid white;
-  margin-left:10px;
+  margin-left: 10px;
   height: 30px;
-  aspect-ratio:1/1;
+  aspect-ratio: 1/1;
 
 }
 
 .search_logo>.menuicon>div {
   width: 100%;
   background: var(--zcolor);
-  padding:1px;
-  margin:2px 0px;
-  border-radius:20px;
+  padding: 1px;
+  margin: 2px 0px;
+  border-radius: 20px;
   animation: flowMenu 1.4s ease-in-out calc(var(--i)*1.6s) infinite alternate;
 }
-@keyframes flowMenu{
-  100% { width:50%;}
+
+@keyframes flowMenu {
+  100% {
+    width: 50%;
+  }
 }
+
 .search_logo>.btnsearchS {
   position: relative;
   right: 0;
@@ -433,4 +442,43 @@ body {
 .disclaimer>i {
   color: #ffffff90;
   margin-top: 5px;
+}
+
+.copyShareUrl {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: auto;
+  height: auto;
+  background: var(--color2);
+  border-radius: 10px 0px 0px 0px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pswF);
+  overflow: hidden;
+  border:2px solid var(--color2);
+  border-right:none;
+  border-bottom:none;
+}
+
+.copyShareUrl::before {
+  position: absolute;
+  top: 0px;
+  right: 0%;
+  content: '\2713';
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pswF);
+  color: var(--color2);
+  opacity:0%;
+  transition: opacity 1s;
+}
+.copyShareUrl.shared::before{
+  opacity:100%;
+  transition: opacity 0.1s;
 }

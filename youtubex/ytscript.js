@@ -32,3 +32,46 @@ function FetchBata(e) {
     }
   });
 }
+
+function share47539(e){
+  e.classList.toggle('shared');
+  setTimeout(()=>{ e.classList.toggle('shared'); },5000);
+}
+
+function copyShareUrl(e) {
+  let closestMovieData = e.closest('.movieData');
+  const url = `${window.location.href}#${closestMovieData.id}`;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url)
+      .then(() => {
+        console.log("URL copied to clipboard!");
+        share47539(e);
+      })
+      .catch(() => {
+        console.log("Failed to copy URL. Please try again.");
+      });
+  } else {
+    const textArea = document.createElement("textarea");
+    textArea.value = url;
+    textArea.style.position = "fixed";
+    textArea.style.opacity = 0;
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      const successful = document.execCommand("copy");
+      if (successful) {
+        console.log("URL copied to clipboard!");
+      } else {
+        throw new Error();
+      }
+    } catch {
+      console.log("Failed to copy URL. Please try again.");
+    } finally {
+      document.body.removeChild(textArea);
+    }
+  }
+}
