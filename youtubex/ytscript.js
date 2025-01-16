@@ -35,8 +35,8 @@ function FetchBata(e) {
 }
 
 function share47539(e){
-  e.classList.toggle('shared');
-  setTimeout(()=>{ e.classList.toggle('shared'); },5000);
+  e.classList.add('shared');
+  setTimeout(()=>{ e.classList.remove('shared'); },5000);
 }
 
 function copyShareUrl(e) {
