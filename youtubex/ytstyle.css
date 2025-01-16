@@ -458,9 +458,9 @@ body {
   justify-content: center;
   color: var(--pswF);
   overflow: hidden;
-  border:2px solid var(--color2);
-  border-right:none;
-  border-bottom:none;
+  border: 2px solid var(--color2);
+  border-right: none;
+  border-bottom: none;
 }
 
 .copyShareUrl::before {
@@ -475,10 +475,11 @@ body {
   justify-content: center;
   background: var(--pswF);
   color: var(--color2);
-  opacity:0%;
+  opacity: 0%;
   transition: opacity 1s;
 }
-.copyShareUrl.shared::before{
-  opacity:100%;
+
+.copyShareUrl.shared::before {
+  opacity: 100%;
   transition: opacity 0.1s;
 }

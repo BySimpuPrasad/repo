@@ -1,3 +1,4 @@
+
 function checkifpass(button) {
   const movieData = button.closest('.movieData');
   const passwordInput = movieData.querySelector('.passfield input');
