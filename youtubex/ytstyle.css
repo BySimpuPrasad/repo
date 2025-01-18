@@ -106,8 +106,14 @@ body {
   background: none;
   padding:20px;
 }
-.menuTab>.menuTabContent>a{
-  
+
+.menuTab .ytsubscribe{
+  padding:5px 10px;
+  background: #D7002A;
+  color: white;
+  border-radius:100px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .search_logo {
