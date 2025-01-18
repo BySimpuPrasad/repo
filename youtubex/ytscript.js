@@ -76,3 +76,13 @@ function copyShareUrl(e) {
     }
   }
 }
+
+function shareThePage(e){
+  switch (e) {
+    case 'whatsapp':
+      window.location.href = `https://wa.me/?text=${window.location}`
+      break;
+    
+    default:
+  }
+}

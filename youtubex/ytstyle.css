@@ -541,5 +541,31 @@ body {
 
 .copyShareUrl.shared::before {
   opacity: 100%;
-  transition: opacity 0.1s;
+  transition: opacity 0s;
+}
+
+.supportMeBar {
+  position: fixed;
+  background: none;
+  left: 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  color: var(--pswF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.supportMeBar>span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: var(--color2);
+  border-radius: inherit;
+  margin:2px 0px;
 }
