@@ -70,10 +70,11 @@ body {
   height: 100%;
   background: var(--MbgImg);
   border: 2px solid var(--color2);
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 0px 10px 10px 0px;
+  border-left:none;
   color: var(--pswF);
   transform: translateX(-150%);
-  transition: all 1s;
+  transition: all 1s ease-in-out;
   box-shadow: 5px 5px 5px 0px #000000a0;
 }
 .menuTab.active{
@@ -98,11 +99,12 @@ body {
 .menuTab>.menuTabContent{
   width:100%;
   height:100%;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 0px 10px 10px 0px;
   overflow-y: scroll;
   overflow-x:hidden;
   border: none;
   background: none;
+  padding:5px;
 }
 
 .search_logo {
