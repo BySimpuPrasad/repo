@@ -106,7 +106,9 @@ body {
   background: none;
   padding:20px;
 }
-
+.menuTab>.menuTabContent>a{
+  
+}
 
 .search_logo {
   width: 100%;
