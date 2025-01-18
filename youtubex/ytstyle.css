@@ -480,6 +480,10 @@ body {
   transition: opacity 1s;
 }
 
+.copyShareUrl.shared{
+  pointer-events: none;
+}
+
 .copyShareUrl.shared::before {
   opacity: 100%;
   transition: opacity 0.1s;

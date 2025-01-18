@@ -41,7 +41,7 @@ function share47539(e){
 
 function copyShareUrl(e) {
   let closestMovieData = e.closest('.movieData');
-  const url = `${window.location.href}#${closestMovieData.id}`;
+  const url = `https://bysimpuprasad.github.io/repo/youtubex/ytindex.html#${closestMovieData.id}`;
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url)
