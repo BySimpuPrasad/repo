@@ -104,7 +104,7 @@ body {
   overflow-x:hidden;
   border: none;
   background: none;
-  padding:5px;
+  padding:20px;
 }
 
 .search_logo {
@@ -402,6 +402,7 @@ body {
   opacity: 80%;
   box-shadow: 3px 3px 3px 0px #000000a0;
   border: 2px solid var(--color2);
+  transform: scale(0.8);
 }
 
 .subToChannel>.logo {
