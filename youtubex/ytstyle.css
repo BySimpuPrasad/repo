@@ -71,13 +71,14 @@ body {
   background: var(--MbgImg);
   border: 2px solid var(--color2);
   border-radius: 0px 10px 10px 0px;
-  border-left:none;
+  border-left: none;
   color: var(--pswF);
   transform: translateX(-150%);
   transition: all 1s ease-in-out;
   box-shadow: 5px 5px 5px 0px #000000a0;
 }
-.menuTab.active{
+
+.menuTab.active {
   transform: translateX(0%);
 }
 
@@ -96,22 +97,22 @@ body {
   border-radius: 10px;
 }
 
-.menuTab>.menuTabContent{
-  width:100%;
-  height:100%;
+.menuTab>.menuTabContent {
+  width: 100%;
+  height: 100%;
   border-radius: 0px 10px 10px 0px;
   overflow-y: scroll;
-  overflow-x:hidden;
+  overflow-x: hidden;
   border: none;
   background: none;
-  padding:20px;
+  padding: 20px;
 }
 
-.menuTab .ytsubscribe{
-  padding:5px 10px;
+.menuTab .ytsubscribe {
+  padding: 5px 10px;
   background: #D7002A;
   color: white;
-  border-radius:100px;
+  border-radius: 100px;
   text-decoration: none;
   font-weight: bold;
 }
