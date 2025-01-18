@@ -1,4 +1,3 @@
-
 function checkifpass(button) {
   const movieData = button.closest('.movieData');
   const passwordInput = movieData.querySelector('.passfield input');
@@ -34,9 +33,9 @@ function FetchBata(e) {
   });
 }
 
-function share47539(e){
+function share47539(e) {
   e.classList.add('shared');
-  setTimeout(()=>{ e.classList.remove('shared'); },5000);
+  setTimeout(() => { e.classList.remove('shared'); }, 5000);
 }
 
 function copyShareUrl(e) {
@@ -77,12 +76,21 @@ function copyShareUrl(e) {
   }
 }
 
-function shareThePage(e){
+function shareThePage(e) {
+  let xyz = window.location;
   switch (e) {
     case 'whatsapp':
-      window.location.href = `https://wa.me/?text=${window.location}`
+      window.location.href = `https://wa.me/?text=${xyz}`
       break;
-    
+    case 'facebook':
+      window.location.href = `https://www.facebook.com/sharer/sharer.php?u=${xyz}&quote=YOUR_TEXT`;
+      break;
+    case 'insta':
+      window.location.href = `https://www.instagram.com/skp257`;
+      break;
+    case 'telegram':
+      window.location.href = `https://t.me/share/url?url=${xyz}&text=YOUR_TEXT`;
+      break;
     default:
   }
 }
