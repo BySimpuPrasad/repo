@@ -10,9 +10,13 @@
   </head>
 
   <body>
+    <div class="menuTab" id="menuTabID">
+      <div class="closeMenuTab" onclick="menuTabID.classList.remove('active')"><i class="fa fa-close"></i></div>
+      <div class="menuTabContent"></div>
+    </div>
     
     <div class="search_logo">
-      <div class="menuicon">
+      <div class="menuicon" onclick="menuTabID.classList.add('active')">
         <div style="--i:1"></div>
         <div style="--i:1.4;"></div>
         <div style="--i:1.7;"></div>
