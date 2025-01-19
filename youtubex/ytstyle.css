@@ -14,20 +14,22 @@ html {
 
 body,
 .contOutput,
-.contentStored {
+.contentStored,
+.sharebtns{
   overflow: hidden;
 }
 
 body,
 .contOutput,
-.contentStored {
-  overflow-y: scroll;
+.contentStored,
+.sharebtns{
   scrollbar-width: none;
 }
 
 body::-webkit-scrollbar,
 .contOutput::-webkit-scrollbar,
-.contentStored::-webkit-scrollbar {
+.contentStored::-webkit-scrollbar
+.sharebtns::-webkit-scrollbar{
   display: none;
 }
 
@@ -548,8 +550,8 @@ body {
   position: fixed;
   background: none;
   left: 10px;
-  padding: 5px;
-  border: none;
+  bottom:10%;
+  border: 1px solid var(--color2);
   border-radius: 10px;
   font-size: 17px;
   color: var(--pswF);
@@ -557,15 +559,42 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
-.supportMeBar>span {
+.supportMeBar>.sharebtns{
+  max-height:100vh;
+  transition: all 1s;
+  overflow-y:scroll;
+  padding:3px 0px;
+}
+.supportMeBar>.sharebtns>span {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 30px;
   height: 30px;
   background: var(--color2);
+  border-radius: 7px;
+  margin: 2px;
+  transition: all 0.3s;
+}
+
+.supportMeBar.unshare>.sharebtns {
+  max-height:0px;
+  padding:0;
+}
+.supportMeBar.unshare>.sharebtns>span{
+  height:10px;
+  color: #00000000;
+}
+
+.supportMeBar>.closeShareBTNS {
+  background: var(--color2);
+  border: none;
+  width: 40px;
+  aspect-ratio: 1/1;
+  color: var(--pswF);
   border-radius: inherit;
-  margin:2px 0px;
+  font-size: inherit;
 }

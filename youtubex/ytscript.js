@@ -86,7 +86,7 @@ function shareThePage(e) {
       window.location.href = `https://www.facebook.com/sharer/sharer.php?u=${xyz}&quote=YOUR_TEXT`;
       break;
     case 'insta':
-      window.location.href = `https://www.instagram.com/skp257`;
+      window.location.href = `https://www.instagram.com/`;
       break;
     case 'telegram':
       window.location.href = `https://t.me/share/url?url=${xyz}&text=YOUR_TEXT`;
