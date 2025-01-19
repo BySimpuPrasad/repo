@@ -598,4 +598,5 @@ body {
   color: var(--pswF);
   border-radius: inherit;
   font-size: inherit;
+  box-shadow: inset 0px 0px 0px 2px var(--MbgImg);
 }
