@@ -23,6 +23,7 @@ body,
 .contOutput,
 .contentStored,
 .sharebtns{
+  overflow-y:scroll;
   scrollbar-width: none;
 }
 
