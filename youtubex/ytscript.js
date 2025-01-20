@@ -1,5 +1,6 @@
 function checkifpass(button) {
   const movieData = button.closest('.movieData');
+  const orgetbtn = movieData.querySelector('.orgetLink');
   const passwordInput = movieData.querySelector('.passfield input');
   const contOutput = movieData.querySelector('.contOutput');
   const orText = movieData.querySelector('.orText');
@@ -14,6 +15,7 @@ function checkifpass(button) {
     orText.innerHTML = "Wrong Password! Watch Video!";
     orText.style.color = "gold";
     orText.style.padding = "5px 0px";
+    orgetbtn.classList.add('if_wrong');
   }
 }
 
