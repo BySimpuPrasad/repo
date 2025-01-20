@@ -110,6 +110,9 @@ body {
   background: none;
   padding: 20px;
 }
+.menuTab>.menuTabContent>h1{
+  
+}
 
 .menuTab .ytsubscribe {
   padding: 5px 10px;
