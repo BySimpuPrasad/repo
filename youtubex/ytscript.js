@@ -93,7 +93,7 @@ function shareThePage(e) {
       break;
     case 'copy':
       const newCopyWindow = window.open("", "_blank");
-      newCopyWindow.document.write(`<h1>Copy URL</h1><br/><h2 style='color:deepskyblue;'>${xyz}</h2>`);
+      newCopyWindow.document.write(`<h1>Copy URL: </h1><br/><h2 style='color:deepskyblue;'>${xyz}</h2>`);
       break;
     default:
   }
