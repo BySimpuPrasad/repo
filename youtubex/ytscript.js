@@ -91,6 +91,10 @@ function shareThePage(e) {
     case 'telegram':
       window.location.href = `https://t.me/share/url?url=${xyz}&text=YOUR_TEXT`;
       break;
+    case 'copy':
+      const newCopyWindow = window.open("", "_blank");
+      newCopyWindow.document.write(`<h1>Copy URL</h1><br/><h2 style='color:deepskyblue;'>${xyz}</h2>`);
+      break;
     default:
   }
 }
