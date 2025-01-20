@@ -431,7 +431,7 @@ body {
 .subToChannel>.logo {
   width: 35px;
   height: 35px;
-  background: url('./logoELW.png'), linear-gradient(-45deg, black, #888);
+  background: url('./logoELWnew.png'), linear-gradient(-45deg, black, black);
   background-position: center;
   background-size: cover;
   border-radius: 100%;
