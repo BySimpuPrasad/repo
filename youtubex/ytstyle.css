@@ -429,8 +429,8 @@ body {
 }
 
 .subToChannel>.logo {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background: url('./logoELW.png'), linear-gradient(-45deg, black, #888);
   background-position: center;
   background-size: cover;
@@ -560,7 +560,7 @@ body {
 
 .supportMeBar {
   position: fixed;
-  background: none;
+  background: var(--zcol);
   left: 10px;
   bottom:10%;
   border: 1px solid var(--color2);
