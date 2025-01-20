@@ -100,3 +100,15 @@ function shareThePage(e) {
     default:
   }
 }
+
+function OneLike(e) {
+  let movieDataElem = document.querySelectorAll('.movieData');
+  let MN = movieDataElem.length;
+  let exactelem = movieDataElem[MN - 1];
+  let orgetLink = exactelem.querySelector('.orgetLink').href;
+  window.open(orgetLink, "_blank");
+  
+  setTimeout(()=>{ 
+    e.innerHTML = `<i class="fa fa-heart"></i>`;
+  },2000);
+}

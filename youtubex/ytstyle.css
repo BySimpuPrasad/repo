@@ -591,6 +591,10 @@ body {
   margin: 2px;
   transition: all 0.3s;
 }
+.supportMeBar>.sharebtns>span>.fa-heart-o,
+.supportMeBar>.sharebtns>span>.fa-heart{
+  color: gold;
+}
 
 .supportMeBar.unshare>.sharebtns {
   max-height:0px;
@@ -598,9 +602,10 @@ body {
 }
 .supportMeBar.unshare>.sharebtns>span{
   height:10px;
+}
+.supportMeBar.unshare>.sharebtns>span>i{
   color: #00000000;
 }
-
 .supportMeBar>.closeShareBTNS {
   background: var(--color2);
   border: none;
