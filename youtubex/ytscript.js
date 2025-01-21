@@ -121,5 +121,5 @@ function OneLike(e) {
 
   setTimeout(() => {
     e.innerHTML = `<i class="fa fa-heart"></i>`;
-  }, 2000);
+  }, 5000);
 }
