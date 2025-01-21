@@ -114,7 +114,6 @@ function OneLike(e) {
 }
 
 function fetchAndGet(e){
-  alert('trigered');
   let p = fetch("./ytData/data.json");
     
     p.then((value)=>{
