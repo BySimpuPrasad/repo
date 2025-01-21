@@ -112,3 +112,13 @@ function OneLike(e) {
     e.innerHTML = `<i class="fa fa-heart"></i>`;
   },2000);
 }
+
+function fetchAndGet(e){
+  let p = fetch("./ytData/data.json");
+    
+    p.then((value)=>{
+    	return value.json();
+    }).then((value)=>{
+    	e.innerHTML = (`<pre>${JSON.stringify(value.students[0],1,1)}</pre>`);
+    });
+}
