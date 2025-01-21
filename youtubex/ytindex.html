@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./ytstyle.css">
   </head>
 
-  <body>
+  <body onload="fetchAndGet()">
     <div class="menuTab" id="menuTabID">
       <div class="closeMenuTab" onclick="menuTabID.classList.remove('active')"><i class="fa fa-close"></i></div>
       <div class="menuTabContent">
@@ -37,7 +37,7 @@
         <div class="movieHeading"><span class="moNam"><span class="hastag">#</span>Pushpa 2</span><a href="#" class="motrail">trailer</a></div>
         <div class="contInput">
           <i>Enter password to unlock links:</i>
-          <div class="passfield"><input type="text"><button onclick="checkifpass(this)" value="257S01">OK</button></div>
+          <div class="passfield"><input type="text"><button onclick="checkifpass(this)">OK</button></div>
           <i style="display: block; text-align: center;" class="orText">or</i>
           <a href="#" class="orgetLink"><i class="fa fa-youtube-play"></i>&nbsp;&nbsp;Get Password</a>
           <div class="contOutput">
@@ -52,7 +52,7 @@
         <div class="movieHeading"><span class="moNam"><span class="hastag">#</span>Ice Age 5</span><a href="#" class="motrail">trailer</a></div>
         <div class="contInput">
           <i>Enter password to unlock links:</i>
-          <div class="passfield"><input type="text"><button onclick="checkifpass(this)" value="257S01">OK</button></div>
+          <div class="passfield"><input type="text"><button onclick="checkifpass(this)">OK</button></div>
           <i style="display: block; text-align: center;" class="orText">or</i>
           <a href="https://youtube.com" class="orgetLink"><i class="fa fa-youtube-play"></i>&nbsp;&nbsp;Get Password</a>
           <div class="contOutput">

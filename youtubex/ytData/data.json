@@ -1,40 +1,8 @@
 {
-  "students": [
+  "passwords": [
     {
-      "id": 1,
-      "name": "Aryan Sharma",
-      "age": 18,
-      "email": "aryan.sharma@example.com",
-      "grades": {
-        "math": 85,
-        "physics": 92,
-        "chemistry": 78
-      },
-      "isPass": true
-    },
-    {
-      "id": 2,
-      "name": "Priya Verma",
-      "age": 17,
-      "email": "priya.verma@example.com",
-      "grades": {
-        "math": 95,
-        "physics": 88,
-        "chemistry": 91
-      },
-      "isPass": true
-    },
-    {
-      "id": 3,
-      "name": "Rahul Singh",
-      "age": 19,
-      "email": "rahul.singh@example.com",
-      "grades": {
-        "math": 45,
-        "physics": 52,
-        "chemistry": 49
-      },
-      "isPass": false
-    }
+      "pushpa2": "257S01",
+      "iceAge": "500S"
+      }
   ]
 }

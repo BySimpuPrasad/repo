@@ -1,3 +1,14 @@
+let dataAPI;
+
+function fetchAndGet() {
+  let pAPI = fetch("./ytData/data.json");
+  pAPI.then((value) => {
+    return value.json();
+  }).then((value) => {
+    dataAPI = value.passwords[0];
+  });
+}
+
 function checkifpass(button) {
   const movieData = button.closest('.movieData');
   const orgetbtn = movieData.querySelector('.orgetLink');
@@ -5,7 +16,7 @@ function checkifpass(button) {
   const contOutput = movieData.querySelector('.contOutput');
   const orText = movieData.querySelector('.orText');
   const enteredPassword = passwordInput.value;
-  const correctPassword = button.value;
+  const correctPassword = dataAPI[movieData.id];
 
   if (enteredPassword === correctPassword) {
     contOutput.classList.add('unlock');
@@ -107,19 +118,8 @@ function OneLike(e) {
   let exactelem = movieDataElem[MN - 1];
   let orgetLink = exactelem.querySelector('.orgetLink').href;
   window.open(orgetLink, "_blank");
-  
-  setTimeout(()=>{ 
-    e.innerHTML = `<i class="fa fa-heart"></i>`;
-  },2000);
-}
 
-function fetchAndGet(e){
-  let p = fetch("./ytData/data.json");
-    
-    p.then((value)=>{
-    	return value.json();
-    }).then((value)=>{
-    	e.innerHTML = (`<pre>${JSON.stringify(value.students[0],1,1)}</pre>`);
-    	e.style.color = 'aqua';
-    });
+  setTimeout(() => {
+    e.innerHTML = `<i class="fa fa-heart"></i>`;
+  }, 2000);
 }
