@@ -120,5 +120,6 @@ function fetchAndGet(e){
     	return value.json();
     }).then((value)=>{
     	e.innerHTML = (`<pre>${JSON.stringify(value.students[0],1,1)}</pre>`);
+    	e.style.color = 'aqua';
     });
 }
