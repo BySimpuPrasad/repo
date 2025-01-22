@@ -66,15 +66,15 @@ body {
 
 .menuTab {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
   z-index: 400;
   width: 300px;
-  height: 100%;
+  height: calc(100% - 20px);
   background: var(--MbgImg);
   border: 2px solid var(--color2);
-  border-radius: 0px 10px 10px 0px;
-  border-left: none;
+  border-radius: 20px;
+  /* border-left: none; */
   color: var(--pswF);
   transform: translateX(-150%);
   transition: all 1s ease-in-out;
@@ -87,7 +87,7 @@ body {
 
 .menuTab>.closeMenuTab {
   position: absolute;
-  top: 15px;
+  top: 20px;
   right: -17px;
   width: 35px;
   height: 35px;
