@@ -75,6 +75,7 @@ body {
   border: 2px solid var(--color2);
   border-radius: 20px;
   color: var(--pswF);
+  padding: 10px 0px;
   transform: translateX(-150%);
   opacity: 0%;
   transition: all 700ms cubic-bezier(.47,1.64,.41,.8);
