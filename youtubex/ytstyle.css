@@ -639,10 +639,11 @@ body {
   height: 100%;
   background: inherit;
   box-shadow: inset 0px 0px 0px 2px var(--MbgImg);
-  opacity:0%;
+  opacity:100%;
   transition: all 200ms;
   border-radius: inherit;
+  font-size: 120%;
 }
 .supportMeBar.unshare>.closeShareBTNS>.closeShareBTNSTagI {
-  opacity: 100%;
+  opacity: 0%;
 }
