@@ -475,7 +475,7 @@ body {
   filter: blur(35px);
   -webkit-filter: blur(35px);
   -moz-filter: blur(35px);
-  animation: glintSub 4s ease 0s infinite normal;
+  animation: glintSub 6s ease 0s infinite normal;
 }
 
 @keyframes glintSub {
