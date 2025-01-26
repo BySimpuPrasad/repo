@@ -15,21 +15,24 @@ html {
 body,
 .contOutput,
 .contentStored,
-.sharebtns {
+.sharebtns,
+.menuTabContent {
   overflow: hidden;
 }
 
 body,
 .contOutput,
 .contentStored,
-.sharebtns {
+.sharebtns,
+.menuTabContent {
   overflow-y: scroll;
   scrollbar-width: none;
 }
 
 body::-webkit-scrollbar,
 .contOutput::-webkit-scrollbar,
-.contentStored::-webkit-scrollbar .sharebtns::-webkit-scrollbar {
+.contentStored::-webkit-scrollbar .sharebtns::-webkit-scrollbar,
+.menuTabContent::-webkit-scrollbar {
   display: none;
 }
 
@@ -63,6 +66,26 @@ body {
   flex-direction: column;
 }
 
+#logoS {
+  border: none;
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logoS>.logImg {
+  border: 1px solid #fff;
+  width: 80px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  background: black url('./mySlogo.svg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 3px 3px 3px 0px #00fbff90, -3px -3px 3px 0px #ff000090;
+}
+
 .menuTab {
   position: fixed;
   top: 15px;
@@ -78,12 +101,12 @@ body {
   padding: 10px 0px;
   transform: translateX(-150%) scale(50%);
   opacity: 0%;
-  transition: all 900ms cubic-bezier(.47,1.64,.41,.8);
+  transition: all 900ms cubic-bezier(.47, 1.64, .41, .8);
   box-shadow: inset 0px 0px 20px 0px var(--zcol), 5px 5px 5px 0px #000000a0;
 }
 
 .menuTab.active {
-  transition: all 500ms cubic-bezier(.47,1.64,.41,.8);
+  transition: all 500ms cubic-bezier(.47, 1.64, .41, .8);
   transform: none;
   opacity: 100%;
 }
@@ -625,7 +648,7 @@ body {
   font-size: inherit;
   box-shadow: inset 0px 0px 0px 2px var(--MbgImg);
   position: relative;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .supportMeBar>.closeShareBTNS>.closeShareBTNSTagI {
@@ -640,11 +663,12 @@ body {
   height: 100%;
   background: inherit;
   box-shadow: inset 0px 0px 0px 2px var(--MbgImg);
-  opacity:100%;
+  opacity: 100%;
   transition: all 200ms;
   border-radius: inherit;
   font-size: 120%;
 }
+
 .supportMeBar.unshare>.closeShareBTNS>.closeShareBTNSTagI {
   opacity: 0%;
 }
