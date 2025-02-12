@@ -14,7 +14,11 @@
   --navBarBG: #36474F;
   --iconGlint: repeating-conic-gradient(transparent, #ffffff30 20%);
 }
-
+html{
+  width:100%;
+  height: 100svh;
+  overflow: hidden;
+}
 body {
   width: 100%;
   height: 100svh;
