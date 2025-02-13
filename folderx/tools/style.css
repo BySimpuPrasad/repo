@@ -10,8 +10,8 @@
 :root {
   --spring: cubic-bezier(0.47, 1.74, 0.41, 0.8);
   --textN: #fff;
-  --folderBG: #131313;
-  --navBarBG: #222327;
+  --folderBG: #0F0C13;
+  --navBarBG: #2A292F;
   --iconGlint: repeating-conic-gradient(transparent, #ffffff30 20%);
 }
 html{
