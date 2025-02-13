@@ -10,8 +10,8 @@
 :root {
   --spring: cubic-bezier(0.47, 1.74, 0.41, 0.8);
   --textN: #fff;
-  --folderBG: #0F0C13;
-  --navBarBG: #2A292F;
+  --folderBG: #111111;
+  --navBarBG: #313131;
   --iconGlint: repeating-conic-gradient(transparent, #ffffff30 20%);
 }
 html{
@@ -213,7 +213,7 @@ body>.navBar {
   position: relative;
   pointer-events: none;
   -webkit-pointer-events: none;
-  opacity: 30%;
+  opacity: 50%;
   z-index: 1;
   transition: opacity 500ms;
 }
