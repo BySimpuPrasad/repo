@@ -11,6 +11,10 @@ navBar.onclick = (event)=>{
     icons[i].classList.remove('on');
   }
   event.target.classList.add('on');
+  document.body.style.pointerEvents = "none";
+  setTimeout(()=>{
+    document.body.style.pointerEvents = "auto";
+  },700);
 }
   else{
     return;
