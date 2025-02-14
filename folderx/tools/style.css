@@ -12,7 +12,7 @@
   --textN: #fff;
   --folderBG: #111111;
   --navBarBG: #313131;
-  --iconGlint: repeating-conic-gradient(transparent, #ffffff30 20%);
+  --iconGlint: repeating-conic-gradient(transparent 0.7%, #ffffff30, transparent 20%);
 }
 html{
   width:100%;
@@ -60,8 +60,10 @@ body>.mainContainer {
   border: none;
   flex-shrink: 0;
   opacity: 0%;
-  transform: scale(0);
+  transform: scale(0) scaleY(150%);
   transform-origin: top;
+  pointer-events: none;
+  -webkit-pointer-events: none;
 }
 
 .mainContainer>.folders.on {
@@ -69,6 +71,8 @@ body>.mainContainer {
   transform: none;
   transform-origin: bottom;
   z-index: 1;
+  pointer-events: auto;
+  -webkit-pointer-events: auto;
 }
 
 .mainContainer>.folders>a {
