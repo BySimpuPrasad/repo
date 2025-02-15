@@ -60,7 +60,7 @@ body>.mainContainer {
   border: none;
   flex-shrink: 0;
   opacity: 0%;
-  transform: scale(0) scaleY(150%);
+  transform: scale(0) skew(1rad);
   transform-origin: top;
   pointer-events: none;
   -webkit-pointer-events: none;
