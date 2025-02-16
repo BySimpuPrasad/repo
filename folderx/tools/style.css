@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Text Me One";
+  font-family: "Ubuntu", sans-serif;
 }
 
 :root {
@@ -12,7 +12,7 @@
   --textN: #fff;
   --folderBG: #111111;
   --navBarBG: #313131;
-  --iconGlint: repeating-conic-gradient(transparent 0.7%, #ffffff30, transparent 20%);
+  --iconGlint: repeating-conic-gradient(transparent, #ffffff20 10%);
 }
 html{
   width:100%;
@@ -60,7 +60,7 @@ body>.mainContainer {
   border: none;
   flex-shrink: 0;
   opacity: 0%;
-  transform: scale(0);
+  transform: scale(0) scaleY(2);
   transform-origin: top;
   pointer-events: none;
   -webkit-pointer-events: none;
