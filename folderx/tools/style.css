@@ -12,7 +12,7 @@
   --textN: #fff;
   --folderBG: #111111;
   --navBarBG: #313131;
-  --iconGlint: repeating-conic-gradient(transparent, #ffffff20 10%);
+  --iconGlint: repeating-conic-gradient(transparent, #ffffff30 20%);
 }
 html{
   width:100%;
