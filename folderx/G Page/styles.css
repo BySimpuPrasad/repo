@@ -131,7 +131,7 @@ body {
   width: 15vw;
   aspect-ratio: 1/1;
   border-radius: 10px;
-  flex-shrink:0;
+  flex-shrink: 0;
   border: none;
   display: flex;
   align-items: center;
@@ -142,7 +142,7 @@ body {
 
 .logoGoogle {
   width: 60%;
-  aspect-ratio:2/1;
+  aspect-ratio: 2/1;
   margin: 10% 0px;
   background: url('https://white.logodownload.org/wp-content/uploads/2020/11/google-white-logo-0-1024x1024.png');
   background-position: center !important;
@@ -151,29 +151,46 @@ body {
   background-repeat: no-repeat !important;
 }
 
-.settingBox{
-  display:none;
-  background:none;
+.settingBox {
+  display: none;
+  background: none;
   border: 3px solid var(--lightColor);
-  width:80%;
+  width: 80%;
   padding: 10px;
   border-radius: 10px;
   max-height: 200px;
 }
-.settingBox.on{
+
+.settingBox.on {
   display: block;
 }
-.settingBox>button{
+
+.settingBox>button {
   background: var(--lightColor);
-  border:none;
+  border: none;
   padding: inherit;
-  width:100%;
+  width: 100%;
   border-radius: 5px;
   color: var(--colortxt);
   font-size: 15px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0px;
 }
-.settingBox>span{
+
+.settingBox>button>span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 2px;
+  background: none;
+}
+
+.settingBox>span {
   color: var(--colortxt);
   font-weight: bold;
   display: block;
