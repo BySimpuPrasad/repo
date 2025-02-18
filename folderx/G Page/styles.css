@@ -13,7 +13,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url('https://wallpaper.forfun.com/fetch/04/0459522bc2cc584ff0a816ccae010285.jpeg?w=1800');
+  background: url('https://wallpaper.forfun.com/fetch/21/215e3ddf9d2d722a16e435992d354932.jpeg?w=1600');
   background-position: center;
   background-size: cover;
 }
@@ -22,6 +22,12 @@ body {
   width: 100%;
   height: 60px;
   background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .content-body {
