@@ -37,6 +37,7 @@ body {
   color: var(--colortxt);
   font-size: 1em;
   font-weight: bold;
+  overflow:hidden;
 }
 .nav>div{
   display: flex;
