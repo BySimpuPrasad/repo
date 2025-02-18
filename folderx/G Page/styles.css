@@ -43,8 +43,11 @@ body {
   display: flex;
   height:100%;
   align-items: center;
+  color: var(--colortxt);
 }
-.nav>div>span {
+.nav>div>a {
+  color: inherit;
+  text-decoration: none;
   background: #ffffff10;
   height: 80%;
   aspect-ratio: 1/1;
