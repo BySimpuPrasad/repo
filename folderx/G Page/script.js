@@ -30,4 +30,5 @@ function changeWallpaper() {
   if (url == "0") { localStorage.removeItem('betterwallpaper'); return;}
   document.body.style.background = url;
   localStorage.setItem('betterwallpaper', url);
+  alert('road the page to see changes!')
 }
