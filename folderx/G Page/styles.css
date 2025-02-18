@@ -37,8 +37,11 @@ body {
   font-size: 1em;
   font-weight: bold;
 }
-
-.nav>span {
+.nav>div{
+  display: flex;
+  height:100%;
+}
+.nav>div>span {
   background: #ffffff10;
   height: 80%;
   aspect-ratio: 1/1;
@@ -46,7 +49,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  margin: 2px;
 }
 
 .content-body {
@@ -97,7 +101,7 @@ body {
 .sitesShort {
   border: none;
   width: 90%;
-  margin-top: 20%;
+  margin-top: 10%;
   display: flex;
   background: var(--lightColor);
   border-radius: 10px;
@@ -116,7 +120,7 @@ body {
   border: none;
   display: flex;
   align-items: center;
-  background: #ffffff20;
+  background: #ffffff10;
   justify-content: center;
   margin: 5px;
 }
