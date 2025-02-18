@@ -42,6 +42,7 @@ body {
 .nav>div{
   display: flex;
   height:100%;
+  align-items: center;
 }
 .nav>div>span {
   background: #ffffff10;
