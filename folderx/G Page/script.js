@@ -25,7 +25,7 @@ function launchSetting() {
 }
 
 function changeWallpaper() {
-  let url = prompt('ENTER url OR -0');
+  let url = prompt(`ENTER url('___') OR -0`);
   if (url == null) { return; }
   if (url == "0") { localStorage.removeItem('betterwallpaper'); return;}
   document.body.style.background = url;
