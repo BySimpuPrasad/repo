@@ -4,7 +4,10 @@
   box-sizing: border-box;
 }
 
-:root {}
+:root {
+  --lightColor: #28292B ;
+  --bgColor: #1F1F1F;
+}
 
 body {
   width: 100%;
@@ -13,7 +16,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url('https://wallpaper.forfun.com/fetch/21/215e3ddf9d2d722a16e435992d354932.jpeg?w=1600');
+  background: var(--bgColor);
   background-position: center;
   background-size: cover;
 }
@@ -24,10 +27,24 @@ body {
   background: none;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 5px 15px;
   color: white;
-  font-size: 2em;
+  font-size: 1em;
   font-weight: bold;
+  backdrop-filter: blur(2px);
+  box-shadow: 0px 3px 2px 0px #00000070;
+}
+
+.navGear {
+  background: #ffffff20;
+  height:80%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
 }
 
 .content-body {
@@ -43,13 +60,14 @@ body {
 
 .search-bar {
   width: 90%;
-  padding: 10px 15px;
+  padding: 10px 20px;
   border-radius: 50px;
-  background: white;
+  background: var(--lightColor);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 25px;
+  color: white;
 }
 
 #search {
@@ -57,6 +75,10 @@ body {
   padding: 5px;
   border: none;
   outline: none;
+  background: none;
+  color: white;
+  font-size: 20px;
+  margin: 0px 5px;
 }
 
 .okSearch {
@@ -67,4 +89,38 @@ body {
   align-items: center;
   justify-content: center;
   font-size: inherit;
+  color: inherit;
+}
+
+.sitesShort {
+  border: none;
+  width: 90%;
+  margin-top: 20%;
+  display: flex;
+  background: var(--lightColor);
+  border-radius: 10px;
+  padding: 10px;
+  overflow-x: scroll;
+}
+
+.sitesShort>a {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  width: 50px;
+  aspect-ratio: 1/1;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  background: #ffffff20;
+  justify-content: center;
+  margin: 5px;
+}
+
+.logoGoogle {
+  width: 50%;
+  margin: 10% 0px;
+  filter: brightness(50);
 }
