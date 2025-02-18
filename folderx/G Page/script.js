@@ -33,7 +33,7 @@ function changeWallpaper() {
   let url = prompt('ENTER url OR -0');
   if (url == null) { return; }
   if (url != "0") {
-    document.body.style.background = `url('${url}')`;
+    document.body.style.background = ` ${bgColor} url('${url}')`;
   }
   else {
     document.body.style.background = bgColor;
