@@ -139,10 +139,9 @@ body {
   width: 60%;
   aspect-ratio:2/1;
   margin: 10% 0px;
-  background: url('https://freelogopng.com/images/all_img/1657952217google-logo-png.png');
+  background: url('https://white.logodownload.org/wp-content/uploads/2020/11/google-white-logo-0-1024x1024.png');
   background-position: center;
-  -webkit-background-size: contain;
-  background-size: contain;
+  -webkit-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
-  filter: brightness(50);
 }
