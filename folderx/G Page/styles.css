@@ -126,7 +126,7 @@ body {
   text-decoration: none;
   color: var(--colortxt);
   font-size: 2em;
-  width: 50px;
+  width: 15vw;
   aspect-ratio: 1/1;
   border-radius: 10px;
   flex-shrink:0;
