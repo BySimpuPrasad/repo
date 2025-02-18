@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
-  --lightColor: #28292B ;
+  --lightColor: #28292B;
   --bgColor: #1F1F1F;
 }
 
@@ -38,7 +42,7 @@ body {
 
 .navGear {
   background: #ffffff20;
-  height:80%;
+  height: 80%;
   aspect-ratio: 1/1;
   border-radius: 10px;
   display: flex;
