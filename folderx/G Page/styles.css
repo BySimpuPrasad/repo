@@ -11,6 +11,7 @@
 :root {
   --lightColor: #28292B;
   --bgColor: #1B1B1B;
+  --colortxt: #fff;
 }
 
 body {
@@ -33,7 +34,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 5px 15px;
-  color: white;
+  color: var(--colortxt);
   font-size: 1em;
   font-weight: bold;
 }
@@ -73,7 +74,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 25px;
-  color: white;
+  color: var(--colortxt);
 }
 
 #search {
@@ -82,7 +83,7 @@ body {
   border: none;
   outline: none;
   background: none;
-  color: white;
+  color: var(--colortxt);
   font-size: 20px;
   margin: 0px 5px;
 }
@@ -111,7 +112,7 @@ body {
 
 .sitesShort>a {
   text-decoration: none;
-  color: white;
+  color: var(--colortxt);
   font-size: 2em;
   width: 50px;
   aspect-ratio: 1/1;
