@@ -31,7 +31,8 @@ function launchSetting() {
 function changeWallpaper() {
   let url = prompt(`ENTER url('___') OR -0`);
   if (url == null) { return; }
-  if (url == "0") { localStorage.removeItem('betterwallpaper'); alert('road the page to see changes!'); return; }
+  if (url == "0") { localStorage.removeItem('betterwallpaper');
+    alert('road the page to see changes!'); return; }
   document.body.style.background = url;
   localStorage.setItem('betterwallpaper', url);
 }
