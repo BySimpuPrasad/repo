@@ -159,15 +159,16 @@ body {
 .settingBox {
   display: none;
   background: none;
-  border: 3px solid var(--lightColor);
+  border: 5px solid var(--lightColor);
   width: 80%;
   padding: 10px;
   border-radius: 10px;
   max-height: 200px;
+  overflow-y: scroll;
 }
 
 .settingBox.on {
-  display: block;
+  display:block;
 }
 
 .settingBox>button {
