@@ -146,6 +146,7 @@ body {
 
 .logoGoogle {
   width: 60%;
+  max-width:300px;
   aspect-ratio: 2/1;
   margin: 10% 0px;
   background: url('https://white.logodownload.org/wp-content/uploads/2020/11/google-white-logo-0-1024x1024.png');
