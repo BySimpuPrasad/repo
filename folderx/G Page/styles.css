@@ -132,6 +132,7 @@ body {
   color: var(--colortxt);
   font-size: 2em;
   width: 15vw;
+  max-width:100px;
   aspect-ratio: 1/1;
   border-radius: 10px;
   flex-shrink: 0;
