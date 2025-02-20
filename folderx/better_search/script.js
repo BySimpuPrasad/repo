@@ -113,6 +113,7 @@ function setElemColor() {
 function addLinks() {
   let product;
   let name = prompt('site name:');
+  if (name === null) { return; }
   let url = prompt('site url');
   if (url === null || name === null || url === "" || name === "") {
     return;
