@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Text+Me+One&family=Trade+Winds&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  outline: 0.0px solid gray;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --lightColor: #ffffff20;
+  --bgColor: #1f1f1f url('https://wallpaper.forfun.com/fetch/6c/6c5d2a23a84889f93b7a5cc8da42f122.jpeg?w=1470');
+  --colortxt: #fff;
+}
+
+body {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: var(--bgColor);
+  color: white;
+  background-position: center;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  animation: fadein 1s ease 0s 1 reverse;
+}
+
+@keyframes fadein {
+  100% {
+    filter: brightness(0%);
+    backdrop-filter: brightness(0%);
+    -webkit-backdrop-filter: brightness(0%);
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.nav>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  height: 100%;
+}
+
+.nav>div .settingOwner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nav>div .settingOwner>.settingBar {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: calc(100% + 5px);
+  right: 5px;
+  padding: 5px;
+  background: var(--lightColor);
+  border-radius: 10px;
+  font-size: 20px;
+  transition: all 300ms ease 100ms;
+  transform: scale(0);
+  transform-origin: 100% 0%;
+}
+
+.nav>div .settingOwner>.settingBar.show {
+  transform: none;
+}
+
+.nav>div .settingOwner>.settingBar>button {
+  background: none;
+  border: none;
+  color: var(--colortxt);
+  text-align: left;
+  width: 100%;
+  white-space: nowrap;
+  margin: 3px;
+  background: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-variant: small-caps;
+}
+
+.nav>div a {
+  color: white;
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--lightColor);
+  margin: 3px;
+  border-radius: 10px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.logo_search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  flex-shrink: 0;
+}
+
+.logo_search>.logo {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 2/1;
+  background: url('https://white.logodownload.org/wp-content/uploads/2020/11/google-white-logo-0-1024x1024.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain;
+}
+
+.logo_search>.searchBar {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 200px;
+  height: 40px;
+  margin-top: 20px;
+  background: var(--lightColor);
+  padding: 0px 5px;
+  font-size: 20px;
+  color: var(--colortxt);
+}
+
+.logo_search .searchBar>span,
+.logo_search .searchBar>.ok_search {
+  height: 80%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+.logo_search #search-input {
+  width: 100%;
+  height: 80%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 3%;
+  font-size: inherit;
+  color: inherit;
+}
+
+.usefull_links {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px;
+}
+
+.link_lists {
+  padding: 5px;
+  width: 90%;
+  max-height: 90%;
+  margin-top: 15%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.link_lists>span {
+  padding: 5px 10px;
+  border-radius: 100px;
+  background: var(--lightColor);
+  color: var(--colortxt);
+  margin: 3px;
+  display: inline-flex;
+}
+
+.link_lists>span>a {
+  text-decoration: none;
+  color: inherit;
+  user-select: none;
+}
+
+.link_lists>span>i.fa {
+  background: var(--lightColor);
+  height: 100%;
+  aspect-ratio: 1/1;
+  margin-left: 3px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.link_lists.on>span>i.fa {
+  display: inline-flex;
+}

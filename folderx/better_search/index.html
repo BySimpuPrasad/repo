@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/png" href="./gpageicon.png">
+  <title>better-search</title>
+</head>
+
+<body>
+
+  <div class="nav">
+    <div class="left"><a href=""><i class="fa fa-home"></i></a></div>
+    <div class="right">
+      <a href=""><i class="fa fa-user-o"></i></a>
+      <a href=""><i class="fa fa-map"></i></a>
+      <div class="settingOwner">
+        <a onclick="showSetting()"><i class="fa fa-gear"></i></a>
+        <div class="settingBar">
+          <button>add shortcut</button>
+          <button>remove shortcuts</button>
+          <button>wallpaper</button>
+          <button>bg color</button>
+          <button>text color</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="logo_search">
+    <div class="logo"></div>
+    <div class="searchBar"><span><i class="fa fa-google"></i></span><input type="text" id="search-input"><button class="ok_search"><i class="fa fa-search"></i></button></div>
+  </div>
+  <div class="usefull_links">
+    <div class="link_lists" id="link_list">
+      <span href=""><a href="">youtube</a><i class="fa fa-close" onclick="this.parentElement.remove();"></i></span>
+      <span href=""><a href="">whatsapp</a><i class="fa fa-close" onclick="this.parentElement.remove();"></i></span>
+      <span href=""><a href="">facebook</a><i class="fa fa-close" onclick="this.parentElement.remove();"></i></span>
+      <span href=""><a href="">instagram</a><i class="fa fa-close" onclick="this.parentElement.remove();"></i></span>
+      <span href=""><a href="">telegram</a><i class="fa fa-close" onclick="this.parentElement.remove();"></i></span>
+    </div>
+  </div>
+  <script src="script.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
