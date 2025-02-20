@@ -205,6 +205,7 @@ body {
   justify-content: center;
   overflow-y: scroll;
   position: relative;
+  font-size: 20px;
 }
 
 .link_lists>span {
@@ -216,6 +217,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: inherit;
 }
 
 .link_lists>span>a {
@@ -251,6 +253,7 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   margin: 5px;
+  font-size: inherit;
 }
 
 .link_lists.on>.link_lists_done {
