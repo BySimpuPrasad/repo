@@ -240,6 +240,8 @@ body {
   border:2px solid var(--colortxt);
   border-radius: 10px;
   z-index:1;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 .link_lists.on>.link_lists_done{
   display: block;
