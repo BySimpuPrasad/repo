@@ -124,7 +124,7 @@ body {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15%;
   flex-shrink: 0;
 }
 
@@ -135,8 +135,8 @@ body {
   background: url('https://white.logodownload.org/wp-content/uploads/2020/11/google-white-logo-0-1024x1024.png');
   background-position: center;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
-  background-size: contain;
+  -webkit-background-size: 60%;
+  background-size: 65%;
 }
 
 .logo_search>.searchBar {
