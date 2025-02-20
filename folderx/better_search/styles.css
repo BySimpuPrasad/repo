@@ -13,9 +13,9 @@
 }
 
 :root {
-  --lightColor: #ffffff20;
+  --elemColor: #ffffff20;
   --bgColor: #1f1f1f url('https://wallpaper.forfun.com/fetch/6c/6c5d2a23a84889f93b7a5cc8da42f122.jpeg?w=1470');
-  --colortxt: #fff;
+  --colorText: #fff;
 }
 
 body {
@@ -75,7 +75,7 @@ body {
   top: calc(100% + 5px);
   right: 5px;
   padding: 5px;
-  background: var(--lightColor);
+  background: var(--elemColor);
   border-radius: 10px;
   font-size: 20px;
   transition: all 300ms ease 100ms;
@@ -90,7 +90,7 @@ body {
 .nav>div .settingOwner>.settingBar>button {
   background: none;
   border: none;
-  color: var(--colortxt);
+  color: var(--colorText);
   text-align: left;
   width: 100%;
   white-space: nowrap;
@@ -102,13 +102,13 @@ body {
 }
 
 .nav>div a {
-  color: white;
+  color: var(--colorText);
   height: 100%;
   aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--lightColor);
+  background: var(--elemColor);
   margin: 3px;
   border-radius: 10px;
   font-size: 20px;
@@ -145,10 +145,10 @@ body {
   border-radius: 200px;
   height: 50px;
   margin-top: 20px;
-  background: var(--lightColor);
+  background: var(--elemColor);
   padding: 0px 5px;
   font-size: 20px;
-  color: var(--colortxt);
+  color: var(--colorText);
 }
 
 .logo_search .searchBar>span,
@@ -203,8 +203,8 @@ body {
 .link_lists>span {
   padding: 5px 10px;
   border-radius: 100px;
-  background: var(--lightColor);
-  color: var(--colortxt);
+  background: var(--elemColor);
+  color: var(--colorText);
   margin: 3px;
   display: inline-flex;
 }
@@ -216,7 +216,7 @@ body {
 }
 
 .link_lists>span>i.fa {
-  background: var(--lightColor);
+  background: var(--elemColor);
   height: 100%;
   aspect-ratio: 1/1;
   margin-left: 3px;
@@ -231,17 +231,16 @@ body {
 }
 .link_lists>.link_lists_done{
   display:none;
-  position: absolute;
-  bottom:0;
-  right:0;
-  background: var(--lightColor);
-  color: var(--colortxt);
+  position: relative;
+  background: var(--elemColor);
+  color: var(--colorText);
   padding: 5px 10px;
-  border:2px solid var(--colortxt);
+  border:2px solid var(--colorText);
   border-radius: 10px;
   z-index:1;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  margin: 5px;
 }
 .link_lists.on>.link_lists_done{
   display: block;
