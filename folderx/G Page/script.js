@@ -4,12 +4,14 @@ let cssroot = document.querySelector(':root');
 let wallpaperLocal = localStorage.getItem('betterwallpaper') || 0;
 let colorBG = localStorage.getItem('color1') || "#ffffff20";
 let colortxts = localStorage.getItem('color2') || "#fff";
+let backgroundPosition = localStorage.getItem('backgroundPos') || "center";
 
 function setWallpaperAuto() {
   cssroot.style.setProperty('--lightColor', colorBG);
   cssroot.style.setProperty('--colortxt', colortxts);
   if (wallpaperLocal == 0) return;
   document.body.style.background = wallpaperLocal;
+  document.body.style.backgroundPosition = backgroundPosition;
 }
 setWallpaperAuto();
 
@@ -31,9 +33,13 @@ function launchSetting() {
 function changeWallpaper() {
   let url = prompt(`ENTER url('___') OR -0`);
   if (url == null) { return; }
-  if (url == "0") { localStorage.removeItem('betterwallpaper');
-    alert('road the page to see changes!'); return; }
+  if (url == "0") {
+    localStorage.removeItem('betterwallpaper');
+    alert('road the page to see changes!');
+    return;
+  }
   document.body.style.background = url;
+  document.body.style.backgroundPosition = backgroundPosition;
   localStorage.setItem('betterwallpaper', url);
 }
 
@@ -48,4 +54,11 @@ function setColor(e) {
     cssroot.style.setProperty('--colortxt', color);
     localStorage.setItem('color2', color);
   }
+}
+
+function setBP() {
+  BP = prompt('Background Position');
+  if(BP == null){ return; }
+  document.body.style.backgroundPosition = BP;
+  localStorage.setItem('backgroundPos', BP);
 }

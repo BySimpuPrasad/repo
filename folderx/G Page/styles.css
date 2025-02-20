@@ -24,7 +24,7 @@ body {
   align-items: center;
   flex-direction: column;
   background: var(--bgColor);
-  background-position: center !important;
+  background-position: center;
   background-size: cover !important;
   background-attachment: fixed !important;
   animation: fadein 1s ease 0s 1 reverse;
