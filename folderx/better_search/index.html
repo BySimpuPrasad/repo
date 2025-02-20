@@ -21,7 +21,7 @@
         <a onclick="showSetting()"><i class="fa fa-gear"></i></a>
         <div class="settingBar">
           <button>add shortcut</button>
-          <button>remove shortcuts</button>
+          <button onclick="removeShortcuts()">remove shortcuts</button>
           <button>wallpaper</button>
           <button>bg color</button>
           <button>text color</button>
@@ -31,10 +31,11 @@
   </div>
   <div class="logo_search">
     <div class="logo"></div>
-    <div class="searchBar"><span><i class="fa fa-google"></i></span><input type="text" id="search-input"><button class="ok_search"><i class="fa fa-search"></i></button></div>
+    <div class="searchBar"><span><i class="fa fa-google"></i></span><input type="text" id="search-input"><button onclick="searchData(this)" class="ok_search"><i class="fa fa-search"></i></button></div>
   </div>
   <div class="usefull_links">
     <div class="link_lists" id="link_list">
+      <button class="link_lists_done" onclick="linkListDone()"><i class="fa fa-check"></i>&nbsp;done</button>
       <span href=""><a href="">youtube</a><i class="fa fa-close" onclick="this.parentElement.remove();"></i></span>
       <span href=""><a href="">whatsapp</a><i class="fa fa-close" onclick="this.parentElement.remove();"></i></span>
       <span href=""><a href="">facebook</a><i class="fa fa-close" onclick="this.parentElement.remove();"></i></span>

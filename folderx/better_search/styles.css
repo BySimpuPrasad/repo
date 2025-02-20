@@ -30,6 +30,7 @@ body {
   background-size: cover !important;
   background-attachment: fixed !important;
   animation: fadein 1s ease 0s 1 reverse;
+  overflow: hidden scroll;
 }
 
 @keyframes fadein {
@@ -196,6 +197,7 @@ body {
   flex-direction: row;
   justify-content: center;
   overflow-y: scroll;
+  position: relative;
 }
 
 .link_lists>span {
@@ -226,4 +228,19 @@ body {
 
 .link_lists.on>span>i.fa {
   display: inline-flex;
+}
+.link_lists>.link_lists_done{
+  display:none;
+  position: absolute;
+  bottom:0;
+  right:0;
+  background: var(--lightColor);
+  color: var(--colortxt);
+  padding: 5px 10px;
+  border:2px solid var(--colortxt);
+  border-radius: 10px;
+  z-index:1;
+}
+.link_lists.on>.link_lists_done{
+  display: block;
 }
