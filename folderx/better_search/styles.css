@@ -29,6 +29,8 @@ body {
   background-size: cover !important;
   background-attachment: fixed !important;
   animation: fadein 1s ease 0s 1 reverse;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 @keyframes fadein {
