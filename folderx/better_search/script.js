@@ -24,10 +24,6 @@ function implementLocals() {
   if (body_background == null || randomWallpaperIs == 1) {}
   else { document.body.style.background = body_background; }
 
-  //set background position 
-  if (body_background_position == null) {}
-  else { document.body.style.backgroundPosition = body_background_position; }
-
   //set color for text
   if (color_for_text == null) {}
   else { cssroot.style.setProperty('--colorText', color_for_text); }
@@ -53,6 +49,11 @@ function implementLocals() {
   // check random wallpaper on-off
   if (randomWallpaperIs == 0) { randomWallpaperBTN.innerHTML = "random wallpaper is off"; }
   else { randomWallpaperBTN.innerHTML = "random wallpaper is on"; }
+
+  //set background position 
+  if (body_background_position == null) {}
+  else { document.body.style.backgroundPosition = body_background_position; }
+
 }
 
 implementLocals();
@@ -172,6 +173,6 @@ function updateLinkstoLocal() {
 
 //Random wallpaper is on-off
 function onOffRandomWallpaper(e) {
-  if(randomWallpaperIs == 0){ localStorage.setItem('local_randomWallpaper_is', 1);}
-  else{ localStorage.setItem('local_randomWallpaper_is', 0); }
+  if (randomWallpaperIs == 0) { localStorage.setItem('local_randomWallpaper_is', 1); }
+  else { localStorage.setItem('local_randomWallpaper_is', 0); }
 }
