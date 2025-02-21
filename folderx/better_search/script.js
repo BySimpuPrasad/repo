@@ -67,7 +67,9 @@ implementLocals();
 
 // Reload the alert
 function reloadTheAlert() {
-  alert('reload the page to see changes!');
+  setTimeout(()=>{
+    alert('reload the page to see changes!');
+  },500);
 }
 
 
