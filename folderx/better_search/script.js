@@ -119,7 +119,7 @@ function setBackgroundPosition() {
 // Set Random Wallpapers
 function setRandomWallpapers() {
   newWallpaperArray.forEach((wall, index) => {
-    let newWall = prompt('wallpaper no ' + (index + 1));
+    let newWall = prompt('set wallpaper no ' + (index + 1) + " with color or url('___')");
     if (newWall == "" || newWall == null) { newWallpaperArray[index] = "#000"; }
     else { newWallpaperArray[index] = newWall; }
   });
