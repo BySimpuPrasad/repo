@@ -1,40 +1,58 @@
+// Variables
+
+
 // GETTING FROM LOCAL STORAGE
 let body_background = localStorage.getItem('local_background');
 let body_background_position = localStorage.getItem('local_background_position');
 let color_for_text = localStorage.getItem('colorForText');
 let color_for_elem = localStorage.getItem('colorForElem');
 let local_links_data = localStorage.getItem('LinksData940');
+let local_randomWallpaper = localStorage.getItem('localRandomWallpaper');
+let randomWallpaperIs = localStorage.getItem('local_randomWallpaper_is') || 0;
 
 // GETTING ELEMENTS
 let link_list = document.getElementById('link_list');
 let settingBar = document.querySelector('.settingBar');
 let searchBar = document.getElementById('search-input');
 let cssroot = document.querySelector(':root');
+let randomWallpaperBTN = document.getElementById('randomWallpaperBTn');
 
 
 //Auto implement locals
 function implementLocals() {
   //set background
-  if (body_background === null) {}
+  if (body_background == null || randomWallpaperIs == 1) {}
   else { document.body.style.background = body_background; }
 
   //set background position 
-  if (body_background_position === null) {}
+  if (body_background_position == null) {}
   else { document.body.style.backgroundPosition = body_background_position; }
 
   //set color for text
-  if (color_for_text === null) {}
+  if (color_for_text == null) {}
   else { cssroot.style.setProperty('--colorText', color_for_text); }
 
   //set color for element
-  if (color_for_elem === null) {}
+  if (color_for_elem == null) {}
   else { cssroot.style.setProperty('--elemColor', color_for_elem); }
 
   // set loaded link data
-  if (local_links_data === null) {}
+  if (local_links_data == null) {}
   else {
     link_list.innerHTML = local_links_data;
   }
+
+  // set random wallpapers
+  if (local_randomWallpaper == null || randomWallpaperIs == 0) {}
+  else {
+    let wallx = local_randomWallpaper.split(",");
+    let randomNumber = Math.floor(Math.random() * wallx.length);
+    document.body.style.background = wallx[randomNumber];
+  }
+
+  // check random wallpaper on-off
+  if (randomWallpaperIs == 0) { randomWallpaperBTN.innerHTML = "random wallpaper is off"; }
+  else { randomWallpaperBTN.innerHTML = "random wallpaper is on"; }
 }
 
 implementLocals();
@@ -81,7 +99,7 @@ function backgroundChange() {
 
 function setBackgroundPosition() {
   let position = prompt('set position');
-  if (position === null) { return; }
+  if (position == null) { return; }
   else {
     localStorage.setItem('local_background_position', position);
     reloadTheAlert();
@@ -89,10 +107,22 @@ function setBackgroundPosition() {
 }
 
 
+// Set Random Wallpapers
+function setRandomWallpapers() {
+  let newWallpaperArray = ["", "", ""];
+  newWallpaperArray.forEach((wall, index) => {
+    let newWall = prompt('wall');
+    if (newWall == "" || newWall == null) { newWallpaperArray[index] = "#000"; }
+    else { newWallpaperArray[index] = newWall; }
+  });
+  localStorage.setItem('localRandomWallpaper', newWallpaperArray);
+}
+
+
 //Change element colors
 function setTxtColor() {
   let color = prompt('set color to text:');
-  if (color === null) { return; }
+  if (color == null) { return; }
   else {
     localStorage.setItem('colorForText', color);
     reloadTheAlert();
@@ -101,7 +131,7 @@ function setTxtColor() {
 
 function setElemColor() {
   let color = prompt('set color to element:');
-  if (color === null) { return; }
+  if (color == null) { return; }
   else {
     localStorage.setItem('colorForElem', color);
     reloadTheAlert();
@@ -113,9 +143,9 @@ function setElemColor() {
 function addLinks() {
   let product;
   let name = prompt('site name:');
-  if (name === null) { return; }
+  if (name == null) { return; }
   let url = prompt('site url');
-  if (url === null || name === null || url === "" || name === "") {
+  if (url == null || name == null || url == "" || name == "") {
     return;
   }
   product = `<span href=""><a href="${url}">${name}</a><i class="fa fa-close" onclick="this.parentElement.remove();"></i></span>`;
@@ -134,7 +164,14 @@ function linkListDone() {
   updateLinkstoLocal();
 }
 
+
 //Update links to local
 function updateLinkstoLocal() {
   localStorage.setItem('LinksData940', link_list.innerHTML);
+}
+
+//Random wallpaper is on-off
+function onOffRandomWallpaper(e) {
+  if(randomWallpaperIs == 0){ localStorage.setItem('local_randomWallpaper_is', 1);}
+  else{ localStorage.setItem('local_randomWallpaper_is', 0); }
 }
