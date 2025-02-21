@@ -1,4 +1,6 @@
 // Variables
+let newWallpaperArray = ["", "", "", ""];
+const pageSpecificKeys = ['local_background', 'local_background_position', 'colorForText', 'colorForElem', 'LinksData940', 'localRandomWallpaper', 'local_randomWallpaper_is'];
 
 
 // GETTING FROM LOCAL STORAGE
@@ -9,6 +11,7 @@ let color_for_elem = localStorage.getItem('colorForElem');
 let local_links_data = localStorage.getItem('LinksData940');
 let local_randomWallpaper = localStorage.getItem('localRandomWallpaper');
 let randomWallpaperIs = localStorage.getItem('local_randomWallpaper_is') || 0;
+
 
 // GETTING ELEMENTS
 let link_list = document.getElementById('link_list');
@@ -37,6 +40,9 @@ function implementLocals() {
   else {
     link_list.innerHTML = local_links_data;
   }
+
+  //set random wallpapers if not available
+  if (local_randomWallpaper == null && randomWallpaperIs == 1) { setTimeout(() => { alert('please first set random wallpapers!'); }, 1000); }
 
   // set random wallpapers
   if (local_randomWallpaper == null || randomWallpaperIs == 0) {}
@@ -110,7 +116,6 @@ function setBackgroundPosition() {
 
 // Set Random Wallpapers
 function setRandomWallpapers() {
-  let newWallpaperArray = ["", "", ""];
   newWallpaperArray.forEach((wall, index) => {
     let newWall = prompt('wall');
     if (newWall == "" || newWall == null) { newWallpaperArray[index] = "#000"; }
@@ -175,4 +180,17 @@ function updateLinkstoLocal() {
 function onOffRandomWallpaper(e) {
   if (randomWallpaperIs == 0) { localStorage.setItem('local_randomWallpaper_is', 1); }
   else { localStorage.setItem('local_randomWallpaper_is', 0); }
+  reloadTheAlert();
+}
+
+// Reset all localStorage
+function clearAllLocalStorage() {
+  let pass = Math.floor(Math.random() * (99999 - 11111 + 1))+ 11111;
+  let askpass = prompt(`enter ${pass} to reset:`);
+  if (askpass == null) { return; }
+  else if (askpass != pass) { alert('wrong pass-key retry!'); }
+  else {
+    pageSpecificKeys.forEach(key => localStorage.removeItem(key));
+    alert('clared \n reload the page once!')
+  }
 }
