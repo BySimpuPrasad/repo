@@ -87,15 +87,17 @@ body {
   background: var(--elemColor);
   border-radius: 10px;
   font-size: 18px;
-  transition: all 300ms ease 0ms;
-  transform: scale(0);
+  transition: all 400ms ease 0ms;
+  transform: scaleX(0) scale(0);
   transform-origin: 100% 0%;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  opacity: 0%;
 }
 
 .nav>div .settingOwner>.settingBar.show {
   transform: none;
+  opacity: 100%;
 }
 
 .nav>div .settingOwner>.settingBar>button {

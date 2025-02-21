@@ -1,5 +1,4 @@
 // Variables
-let newWallpaperArray = ["", "", "", ""];
 const pageSpecificKeys = ['local_background', 'local_background_position', 'colorForText', 'colorForElem', 'LinksData940', 'localRandomWallpaper', 'local_randomWallpaper_is'];
 
 
@@ -118,12 +117,9 @@ function setBackgroundPosition() {
 
 // Set Random Wallpapers
 function setRandomWallpapers() {
-  newWallpaperArray.forEach((wall, index) => {
-    let newWall = prompt('set wallpaper no ' + (index + 1) + " with color or url('___')");
-    if (newWall == "" || newWall == null) { newWallpaperArray[index] = "#000"; }
-    else { newWallpaperArray[index] = newWall; }
-  });
-  localStorage.setItem('localRandomWallpaper', newWallpaperArray);
+  let newWall = prompt("set 5 color or url('___') wallpapers as ___ ___ ___ ___ ___", 'red green blue black blueviolet');
+  let splited = newWall.split(" ");
+  localStorage.setItem('localRandomWallpaper', splited);
 }
 
 
