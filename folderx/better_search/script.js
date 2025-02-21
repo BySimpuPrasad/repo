@@ -67,9 +67,9 @@ implementLocals();
 
 // Reload the alert
 function reloadTheAlert() {
-  setTimeout(()=>{
+  setTimeout(() => {
     alert('reload the page to see changes!');
-  },500);
+  }, 500);
 }
 
 
@@ -119,7 +119,7 @@ function setBackgroundPosition() {
 // Set Random Wallpapers
 function setRandomWallpapers() {
   newWallpaperArray.forEach((wall, index) => {
-    let newWall = prompt('wall');
+    let newWall = prompt('wallpaper no ' + (index + 1));
     if (newWall == "" || newWall == null) { newWallpaperArray[index] = "#000"; }
     else { newWallpaperArray[index] = newWall; }
   });
@@ -187,7 +187,7 @@ function onOffRandomWallpaper(e) {
 
 // Reset all localStorage
 function clearAllLocalStorage() {
-  let pass = Math.floor(Math.random() * (99999 - 11111 + 1))+ 11111;
+  let pass = Math.floor(Math.random() * (99999 - 11111 + 1)) + 11111;
   let askpass = prompt(`enter ${pass} to reset:`);
   if (askpass == null) { return; }
   else if (askpass != pass) { alert('wrong pass-key retry!'); }
