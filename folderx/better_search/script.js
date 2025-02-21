@@ -117,7 +117,7 @@ function setBackgroundPosition() {
 
 // Set Random Wallpapers
 function setRandomWallpapers() {
-  let newWall = prompt("set 5 color or url('___') wallpapers as ___ ___ ___ ___ ___", 'red green blue black blueviolet');
+  let newWall = prompt("set color or url('___') wallpapers as ___ ___ ___ ___ ___", 'red green blue black blueviolet');
   let splited = newWall.split(" ");
   localStorage.setItem('localRandomWallpaper', splited);
 }
