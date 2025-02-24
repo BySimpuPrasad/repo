@@ -33,6 +33,7 @@ body {
   background: #3F3F3F;
   color: white;
   padding: 5px 7px;
+  font-size: 28px;
 }
 
 .nav>img {
@@ -41,7 +42,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: aqua;
   display: flex;
   align-items: center;
   justify-content: flex-start;
