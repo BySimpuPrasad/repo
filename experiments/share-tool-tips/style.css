@@ -28,8 +28,8 @@ div.share-buttons {
   justify-content: space-around;
 }
 
-a {
-  --distance-of-toolbox: -150%;
+div>a {
+  --distance-of-toolbox: -130%;
   position: relative;
   width: 50px;
   aspect-ratio: 1/1;
@@ -37,6 +37,8 @@ a {
   align-items: center;
   justify-content: center;
   background: white;
+  color: black;
+  text-decoration: none;
   box-shadow: 0px 5px 5px 0px #00000090;
   border-radius: 50%;
   margin: 10px;
@@ -44,7 +46,7 @@ a {
   transition: all 300ms;
 }
 
-a::before {
+div>a::before {
   position: absolute;
   top: 0;
   content: attr(data-name);
@@ -58,7 +60,7 @@ a::before {
   transition: all 300ms cubic-bezier(0.47, 1.74, 0.41, 0.8);
 }
 
-a::after {
+div>a::after {
   position: absolute;
   top: 0;
   content: '';
@@ -71,21 +73,21 @@ a::after {
   transition: all 300ms cubic-bezier(0.47, 1.74, 0.41, 0.8);
 }
 
-a:hover::before {
+div>a:hover::before {
   opacity: 100%;
   top: var(--distance-of-toolbox);
 }
 
-a:hover::after {
+div>a:hover::after {
   opacity: 100%;
   top: calc(var(--distance-of-toolbox) + 15px);
 }
 
 
-a:hover {
+div>a:hover {
   background: var(--bg-color);
 }
 
-a:hover>i {
+div>a:hover>i {
   color: white;
 }
