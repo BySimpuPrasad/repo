@@ -91,3 +91,9 @@ div>a:hover {
 div>a:hover>i {
   color: white;
 }
+
+.get-code{
+  text-decoration: none;
+  color: white;
+  border-radius: 200px;
+}
