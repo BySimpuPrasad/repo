@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Text+Me+One&family=Trade+Winds&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+root {
+  --spring: cubic-bezier(0.47, 1.74, 0.41, 0.8);
+}
+
+body {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: white;
+}
+
+div.share-buttons {
+  width: 100%;
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+a {
+  --distance-of-toolbox: -150%;
+  position: relative;
+  width: 50px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  box-shadow: 0px 5px 5px 0px #00000090;
+  border-radius: 50%;
+  margin: 10px;
+  font-size: 24px;
+  transition: all 300ms;
+}
+
+a::before {
+  position: absolute;
+  top: 0;
+  content: attr(data-name);
+  border-radius: 200px;
+  background: var(--bg-color);
+  padding: 7px 12px;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  opacity: 0%;
+  transition: all 300ms cubic-bezier(0.47, 1.74, 0.41, 0.8);
+}
+
+a::after {
+  position: absolute;
+  top: 0;
+  content: '';
+  transform: rotate(45deg);
+  background: var(--bg-color);
+  width: 20px;
+  aspect-ratio: 1/1;
+  z-index: -1;
+  opacity: 0%;
+  transition: all 300ms cubic-bezier(0.47, 1.74, 0.41, 0.8);
+}
+
+a:hover::before {
+  opacity: 100%;
+  top: var(--distance-of-toolbox);
+}
+
+a:hover::after {
+  opacity: 100%;
+  top: calc(var(--distance-of-toolbox) + 15px);
+}
+
+
+a:hover {
+  background: var(--bg-color);
+}
+
+a:hover>i {
+  color: white;
+}
