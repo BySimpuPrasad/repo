@@ -1,0 +1,4 @@
+{
+  "name": "John",
+  "greet": "function() { console.log('Hello, ' + this.name); }"
+}
