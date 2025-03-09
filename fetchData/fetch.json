@@ -1,4 +1,4 @@
 {
-  "name": "John",
-  "greet": "return console.log('Hello, ' + this.name);"
+  "content1": "John",
+  "step1": "return document.body.innerHTML = content1;"
 }
