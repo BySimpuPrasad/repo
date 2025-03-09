@@ -1,4 +1,3 @@
 {
-  "content1": "John",
-  "step1": "return document.body.innerHTML = data.content1;"
+  "toolBox": "return document.body.innerHTML += `hi`;"
 }
