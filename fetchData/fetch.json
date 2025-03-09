@@ -1,4 +1,4 @@
 {
   "content1": "John",
-  "step1": "return document.body.innerHTML = content1;"
+  "step1": "return document.body.innerHTML = data.content1;"
 }
