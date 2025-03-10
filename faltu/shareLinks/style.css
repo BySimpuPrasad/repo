@@ -39,7 +39,7 @@ body>a {
   display: block;
   margin: 10px auto 10px auto;
   width: 90%;
-  background: var(--transColor);
+  background: none;
   border-radius: 10px;
   color: white;
   padding: 10px;
