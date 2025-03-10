@@ -6,27 +6,32 @@
   box-sizing: border-box;
 }
 
-root {}
+:root {
+  --transColor: #ffffff10;
+}
 
 body {
   width: 100%;
   height: 100svh;
+  background: linear-gradient(45deg, black, #18003E);
 }
 
 nav {
-  width: 100%;
+  width: calc(100% - 20px);
+  margin: 10px auto 0px auto;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: start;
   padding: 0px 10px;
-  background: black;
-  color: white;
+  background: var(--transColor);
+  border: 1px inset #ffffff90;
+  border-radius: 20px;
+  color: aqua;
   font-family: "Orbitron", sans-serif;
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 2px;
-  margin-bottom: 20px;
 }
 
 body>a {
@@ -34,7 +39,8 @@ body>a {
   display: block;
   margin: 10px auto 10px auto;
   width: 90%;
-  background: royalblue;
+  background: var(--transColor);
+  border-radius: 10px;
   color: white;
   padding: 10px;
   font-size: 18px;
@@ -42,28 +48,33 @@ body>a {
 }
 
 .hidden-content {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0px auto 10px auto;
-  padding: 10px;
-  width: 90%;
-  background: black;
+  margin: 10px auto 10px auto;
+  max-height: 0%;
+  width: calc(100% - 40px);
+  background: var(--transColor);
+  border-radius: 10px;
+  border: 0px inset #ffffff90;
   counter-reset: counts;
+  transition: all 1000ms;
+  overflow: hidden;
 }
 
 .hidden-content.unlock{
-  display: flex;
+  max-height: 100%;
 }
 
 .hidden-content>a {
   position: relative;
-  color: black;
+  color: gold;
   font-variant: small-caps;
   text-decoration: none;
-  background: gold;
-  padding: 5px;
+  background: inherit;
+  border-radius: 10px;
+  padding: 10px;
   display: block;
   width:100%;
   font-family: "Ubuntu", sans-serif;
@@ -74,6 +85,6 @@ body>a {
   counter-increment: counts;
   content: "("counter(counts) ") ";
   font-family: "Text Me One", sans-serif;
-  color: black;
+  color: inherit;
   font-size: 15px;
 }
