@@ -2,7 +2,7 @@ let hiddenDiv = document.querySelector(".hidden-content");
 let timeout;
 let tapCount = 0;
 
-function unlockTheContent(){
+function unlockTheContent(e){
   clearTimeout(timeout);
   tapCount++;
   if(tapCount == 7){
@@ -17,7 +17,7 @@ function unlockTheContent(){
 }
 
 function finallyUnlock(){
-  if(tapCount > 7) { return; }
+  if(tapCount < 7) { return; }
   let x = prompt('Enter Pass');
   if(x != "skp257"){ return; }
   hiddenDiv.classList.add('unlock');
