@@ -123,3 +123,9 @@ function OneLike(e) {
     e.innerHTML = `<i class="fa fa-heart"></i>`;
   }, 5000);
 }
+
+function closeShare(){
+  let elm = document.getElementsByClassName('closeShareBTNS')[0];
+  setTimeout(()=>{elm.click();},2000);
+}
+closeShare();
