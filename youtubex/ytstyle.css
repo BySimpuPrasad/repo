@@ -101,12 +101,12 @@ body {
   padding: 10px 0px;
   transform: translateX(-150%) scale(50%);
   opacity: 0%;
-  transition: all 900ms cubic-bezier(.47, 1.64, .41, .8);
+  transition: all 900ms ease;
   box-shadow: inset 0px 0px 20px 0px var(--zcol), 5px 5px 5px 0px #000000a0;
 }
 
 .menuTab.active {
-  transition: all 500ms cubic-bezier(.47, 1.64, .41, .8);
+  transition: all 500ms ease;
   transform: none;
   opacity: 100%;
 }
