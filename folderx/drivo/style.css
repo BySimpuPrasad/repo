@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Text+Me+One&family=Trade+Winds&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+root {}
+
+body {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.content {
+  border: 1px solid none;
+  border-radius: 10px;
+  padding: 10px 5px;
+  width: min(90%, 400px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content>hr {
+  width: 95%;
+  height: 1px;
+  background: #eee;
+  border: none;
+  border-radius: 10px;
+  margin: 20px 0px;
+}
+hr.hidden{
+  background: white;
+  margin-top: 50px;
+}
+
+.logoDrivo {
+  width: 90%;
+  height: 50px;
+  background: url('./drivo_logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-top: 10px;
+}
+
+.searchField {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#searchIt {
+  width: 100%;
+  padding: 5px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  border: 1px solid gray;
+  outline: none;
+}
+#searchIt::placeholder{
+  color: #aaa;
+  font-size: 0.6em;
+}
+
+#searchBTN {
+  background: blueviolet;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+p {
+  width: 90%;
+  font-size: 0.9em;
+}
+
+.mystamp {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
