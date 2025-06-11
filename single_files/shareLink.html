@@ -19,12 +19,12 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      background: #DBDBDB;
+      background: #000;
       width: 100%;
     }
 
     body>a {
-      background: #00AFFF;
+      background: royalblue;
       display: block;
       width: 80%;
       color: #fff;
@@ -33,13 +33,13 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1.3em;
-      border-radius: 20px 100%;
+      border-radius: 20px;
       margin: 8px;
     }
 
     .hiddenbar {
       width: 100%;
-      background: none;
+      background: box;
       height: 30px;
       position: absolute;
       top: 0;
@@ -77,12 +77,12 @@
 <body>
   <div onclick="runPass()" class="hiddenbar"></div>
 
-  <a href="https://www.punjabeducare.org/main-7th-class">Punjab Educare 7</a>
+  <a href="https://www.punjabeducare.org/main-7th-class">Punjab Educare</a>
   <a href="https://chatgpt.com/">Open AI</a>
 
 
   <div id="boxx">
-    <a href="https://www.mediafire.com/file/gk2v4bn93x7cyiy/MC_Patch_1.21.50.apk/file">mcpe 1.21.50 patch mediafire</a>
+    <a href="https://www.mediafire.com/file/gk2v4bn93x7cyiy/MC_Patch_1.21.50.apk/file">Minecraft ---</a>
     <a href="https://drive.google.com/drive/folders/1r-vwRsCTS0TBgD4YdKSeOrXTxUtg2x3G">download images drive</a>
 
   </div>
@@ -95,7 +95,7 @@
     let i = 0;
 
     function displayBox() {
-      if (prompt('pass') == "7") {
+      if (prompt('pass') == "skp257") {
         boxx.classList.add('show');
       }
       else {
@@ -106,12 +106,13 @@
 
     function runPass() {
       i++;
-      if (i == 7) {
+      if (i == 10) {
         displayBox();
-        i = 0;
+      }
       }
       else {}
-    }
+    
+    console.log(5 ** 2)
   </script>
 </body>
 
